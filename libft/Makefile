@@ -6,7 +6,7 @@
 #    By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/10 14:58:59 by jcoutare          #+#    #+#              #
-#    Updated: 2017/05/04 13:35:13 by jcoutare         ###   ########.fr        #
+#    Updated: 2017/08/16 11:29:35 by jcoutare         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -89,9 +89,9 @@ OBJ = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME):	$(OBJ)
-			ar rcs $(NAME) $(OBJ)
+			@ar rcs $(NAME) $(OBJ)
 clean:
-		rm -f $(OBJ)
+		@rm -f $(OBJ)
 fclean: clean
-		rm -f libft.a
+		@rm -f libft.a
 re: fclean all
