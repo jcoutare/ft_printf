@@ -2,9 +2,14 @@
 
 int		main(void)
 {
+	char str[] = "wesh bien";
+	int i = 0;
 
+	while (str < ft_strchr(str, ' '))
+		ft_putchar(str[i++]);
 	return (0);
 }
+
 /*JEAN-POUBELLE
 	void (*flag_tab[127])(char);
 
