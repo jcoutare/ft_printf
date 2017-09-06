@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 12:19:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/05 14:25:11 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/06 18:04:54 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LOL_H
@@ -23,11 +23,23 @@ typedef union mon_union
 
 typedef struct t_struct
 {
-	char *c;
-	int octet;
+	int neg;
+	int plus;
+	int space;
+	int diese;
+	int largeur;
+	int olargeur;
+	int starlarg;
+	int doto;
+	int dotprec;
+	int starprec;
+
+	int len;
 	void (*flag_tab[127])(va_list ap, struct t_struct *lol);
 }				s_struct;
 
+int     strichr(char *str, char c);
+int     strichr_str(char *str, char *chr);
 char *ft_itoa_base(unsigned int nbr, int base);
 s_struct	*fill_struct(s_struct *lol);
 void    flag_d_signed(va_list ap, s_struct *lol);

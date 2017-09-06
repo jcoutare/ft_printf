@@ -6,9 +6,11 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 15:19:25 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/05 15:19:52 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/06 16:40:30 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/lol.h"
 
 int		strichr(char *str, char c)
 {
@@ -21,7 +23,28 @@ int		strichr(char *str, char c)
 			return (i);
 		i++;
 	}
-	if (str[i] == c)
-		return (i);
-	return (-1);
+	return (0);
+}
+
+int		strichr_str(char *str, char *chr)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (chr[j])
+		{
+			if (str[i] == chr[j])
+			{
+				printf("stop at : %c\n", str[i]);
+				return (i);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }

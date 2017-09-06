@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:44:30 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/05 14:25:15 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/06 17:46:57 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ s_struct	*fill_struct(s_struct *lol)
 {
 	if (!(lol = malloc(sizeof(s_struct))))
 		return (NULL);
-	lol->c = NULL;
-	lol->octet = 0;
+	lol->len = 0;
 	lol->flag_tab['d'] = &flag_d_signed;
 	lol->flag_tab['i'] = &flag_d_signed;
 	lol->flag_tab['o'] = &flag_o_unsigned;
