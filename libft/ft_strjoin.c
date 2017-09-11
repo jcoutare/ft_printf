@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/10 16:01:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/08/14 13:50:48 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/07 18:58:34 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		str[i + j] = s2[j];
 		j++;
 	}
-	free((void *)s1);
+	if (s1)
+		free((void *)s1);
 	str[i + j] = '\0';
 	return (str);
 }

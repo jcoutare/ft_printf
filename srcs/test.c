@@ -1,21 +1,14 @@
 #include "../includes/lol.h"
+#include <stdio.h>
 
 int		main(void)
 {
-	char str[] = "wesh bien";
-	int i = 0;
+	char str[] = "wesh ql%";
+	char *dst;
 
-	while (str < ft_strchr(str, ' '))
-		ft_putchar(str[i++]);
-	return (0);
+	dst = cpy_until_c(str, '%');
+	ft_putstr(dst);
 }
 
 /*JEAN-POUBELLE
-	void (*flag_tab[127])(char);
-
-	flag_tab['c'] = &ft_putchar;
-	flag_tab['d'] = &ft_putshlag;
-	char lol = 'd';
-	flag_tab[99](lol);
-	flag_tab[lol](lol);
 */

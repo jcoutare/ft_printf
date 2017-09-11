@@ -6,62 +6,107 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/06 17:47:39 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/11 16:25:33 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lol.h"
-void	la_resolvance(char *flags)
+
+void	la_resolvance(t_struct *data)
 {
+	int i;
 
-}
+	i = 1;
 
-char	 *get_flags(char *str)
-{
-	char *flags;
-
-	flags = ft_strsub(str, 0, (strichr_str(str, "sSpdDioOuUxXcC") + 1));
-	ft_putnbr(ft_atoi(flags)); // < a tej
-
-	return (flags);
-}
-
-char	*decoupe(char *str)
-{
-	char *copy;
-
-	if ((copy = ft_strnew(strichr(str, '%'))) == NULL)
+	while (data->flags[i])
 	{
-		ft_putstr(str);
-		return (0);
+		printf("|resolv| le flag traited = %c\n", data->flags[i]);
+		data->flag_tab[data->flags[i]](data);
+		printf("|resolv| data->ret = %s\n", data->resolved);
+	i++;
 	}
-	get_flags(ft_strchr(str, '%'));
-	return (copy);
 }
 
-/*char *joinjoin(char *str)
+char	*get_flags(char *str, t_struct *data)
 {
-	char *gg;
+	data->flags = ft_strsub(str, 0, strichr_str(str, "sSpdDioOuUxXcC") + 1);
+	la_resolvance(data);
+	str += strichr_str(str, "sSpdDioOuUxXcC") + 1;
+	return (str);
+}
 
-	gg = ft_strjoin(decoupe(str), la_resolvance(decoupe(str)));
-	return (gg);
-	}*/
+void	decoupe(char *str, t_struct *data)
+{
+	int  i = 0;
+	while (strichr(str, '%') != 0)
+	{
+		data->fstring = ft_strnjoin(data->fstring, str, strichr(str, '%'));
+		str = get_flags(str + strichr(str, '%'), data);
+		printf("%s\n", str);
+		data->fstring = ft_strjoin(data->fstring, data->resolved);
+		ft_memset(data->resolved, '\0', ft_strlen(data->resolved));
+		i++;
+	}
+	data->fstring = ft_strjoin(data->fstring, str);
+}
+
 int		ft_printf(char *str,...)
 {
 	va_list ap;
 	the_union tamer;
-	char *copy;
-	int i = 0;
+	char *copy = ft_strdup(str);
+	t_struct *data;
 
- 	if ((copy = decoupe(str)) == NULL)
-		return (0);
-	va_start(&ap, str);
+	va_start(ap, str);
+	data = fill_struct(data, &ap);
+	decoupe(copy, data);
+	printf("|FSTRING| = %s\n", data->fstring);
 	va_end(ap);
 	return (0);
 }
 
 int		main(void)
 {
-	ft_printf("123%#10.2x78", "255");
+	ft_printf("ta %#x m%#xer %#x ton %#x per %#x", 255, 42, 75, 200, 100);
 	return (0);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*POUBELLE
+	if (lol->fstring == NULL)
+	{
+
+		printf("|FSTRING| = %s\n", lol->fstring);
+		printf("|STR| = %s\n", str);
+		get_flags(str + strichr(str, '%'), lol);
+		str = str + lol->endflags;
+		printf("|STR| = %s\n", str);
+		lol->fstring = ft_strjoin(lol->fstring, lol->resolved);
+		printf("|FSTRING| = %s\n", lol->fstring);
+		ft_memset(lol->resolved, '\0', ft_strlen(lol->resolved));
+	}
+	while (strichr(str, '%') != 0)
+	{
+		lol->fstring = ft_strnjoin(lol->fstring, str, strichr(str, '%'));
+		printf("|FSTRING| = %s\n", lol->fstring);
+		get_flags(str + strichr(str, '%'), lol);
+		str = str + lol->endflags;
+		lol->fstring = ft_strjoin(lol->fstring, lol->resolved);
+		ft_memset(lol->resolved, '\0', ft_strlen(lol->resolved));
+	}*/
