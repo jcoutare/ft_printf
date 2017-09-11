@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:44:30 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/11 15:13:43 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/11 16:53:53 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ t_struct	*fill_struct(t_struct *data, va_list *ap)
 	data->resolved[0] = 0;
 	data->flags = NULL;
 	data->len = 0;
+	data->larg = -1;
+	data->prec = -1;
 	data->flag_tab['d'] = &flag_d_signed;
 	data->flag_tab['i'] = &flag_d_signed;
 	data->flag_tab['o'] = &flag_o_unsigned;

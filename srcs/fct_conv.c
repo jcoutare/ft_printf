@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/11 15:15:25 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/11 17:24:06 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	flag_hex_unsigned(t_struct *data)
 	while (data->resolved[i])
 	{
 		ft_tolower(data->resolved[i]);
-		//printf("%c\n", lol->ret[i]);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/11 16:25:33 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/11 17:24:26 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	decoupe(char *str, t_struct *data)
 	{
 		data->fstring = ft_strnjoin(data->fstring, str, strichr(str, '%'));
 		str = get_flags(str + strichr(str, '%'), data);
-		printf("%s\n", str);
 		data->fstring = ft_strjoin(data->fstring, data->resolved);
 		ft_memset(data->resolved, '\0', ft_strlen(data->resolved));
 		i++;
@@ -67,7 +66,7 @@ int		ft_printf(char *str,...)
 
 int		main(void)
 {
-	ft_printf("ta %#x m%#xer %#x ton %#x per %#x", 255, 42, 75, 200, 100);
+	ft_printf("Arthur %#x le toxo", 255, 255, 255);
 	return (0);
 }
 
