@@ -3,11 +3,9 @@
 
 int		main(void)
 {
-	char str[] = "wesh ql%";
-	char *dst;
-
-	dst = cpy_until_c(str, '%');
-	ft_putstr(dst);
+	void *i = 0;
+	printf("%0100.10d\n", -97);
+	printf("atoi = %d\n", ft_atoi("8.2s"));
 }
 
 /*JEAN-POUBELLE

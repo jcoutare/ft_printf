@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/11 17:24:06 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/12 15:02:41 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,70 +14,91 @@
 
 void	flag_d_signed(t_struct *data)
 {
-	char *str;
+	int arg;
 
-	str = ft_itoa(va_arg(*data->ap, int));
-	data->len += ft_strlen(str);
-	ft_putstr(str);
-	free(str);
+	data->conv = 1;
+	arg = va_arg(*data->ap, int);
+	if (data->flag == 2)
+		data->resolved = ft_strjoin(data->resolved, "+");
+	data->resolved = ft_strjoin(data->resolved, ft_itoa(arg));
 }
 
 void	flag_d_unsigned(t_struct *data)
 {
-	char *str;
+	int arg;
 
-	str = ft_itoa(va_arg(*data->ap, unsigned int));
-	data->len += ft_strlen(str);
-	ft_putstr(str);
-	free(str);
+	data->conv = 1;
+	arg = va_arg(*data->ap, int);
+	if (data->flag == 2)
+		data->resolved = ft_strjoin(data->resolved, "+");
+	data->resolved = ft_itoa(arg);
 }
 
 void	flag_o_unsigned(t_struct *data)
 {
-	char *str;
+	unsigned int arg;
 
-	str = ft_itoa_base(va_arg(*data->ap, unsigned int), 8);
-	data->len += ft_strlen(str);
-	ft_putstr(str);
-	free(str);
+	data->conv = 1;
+	arg = va_arg(*data->ap, unsigned int);
+	data->resolved = ft_itoa_base(arg, 8);
 }
 
 void	flag_hex_unsigned(t_struct *data)
 {
+	int i;
+	unsigned int arg;
 
-	int i = 0;
-	data->resolved = ft_strjoin(data->resolved,
-							   ft_itoa_base(va_arg(*data->ap, unsigned int), 16));
-	data->len += ft_strlen(data->resolved);
+	i = 0;
+	data->conv = 1;
+	arg = va_arg(*data->ap, unsigned int);
+	if (data->flag == 2)
+		data->resolved = ft_strjoin(data->resolved, "+");
+	data->resolved = ft_strjoin(data->resolved, ft_itoa_base(arg, 16));
 	while (data->resolved[i])
 	{
-		ft_tolower(data->resolved[i]);
+		data->resolved[i] = ft_tolower(data->resolved[i]);
 		i++;
 	}
 }
 
 void	flag_hex_unsigned_maj(t_struct *data)
 {
-	char *str;
+	unsigned int arg;
 
-	str = ft_itoa_base(va_arg(*data->ap, unsigned int), 16);
-	data->len += ft_strlen(str);
-	ft_putstr(str);
-	free(str);
+	data->conv = 1;
+	arg = va_arg(*data->ap, unsigned int);
+	data->resolved = ft_strjoin(data->resolved, ft_itoa_base(arg, 16));
+}
+
+void	flag_p(t_struct *data)
+{
+	int i;
+	void *arg;
+
+	i = 0;
+	data->conv = 1;
+	arg = va_arg(*data->ap, void *);
+	data->resolved = ft_strjoin(data->resolved, "0x");
+	data->resolved = ft_strjoin(data->resolved,
+								ft_itoa_base((unsigned int)arg, 16));
+	while (data->resolved[i])
+	{
+		data->resolved[i] = ft_tolower(data->resolved[i]);
+		i++;
+	}
 }
 
 void	flag_s(t_struct *data)
 {
-	char *str;
-
-	str = va_arg(*data->ap, char *);
-	data->len += ft_strlen(str);
-	ft_putstr(str);
+	data->resolved = va_arg(*data->ap, char *);
 }
 
 void	flag_c(t_struct *data)
 {
-	ft_putchar(va_arg(*data->ap, int));
-	data->len++;
+	int arg;
+
+	arg = va_arg(*data->ap, int);
+	data->resolved[0] = arg;
+	data->resolved[1] = 0;
 }
 

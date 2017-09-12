@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:44:30 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/11 16:53:53 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/12 15:43:31 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ t_struct	*fill_struct(t_struct *data, va_list *ap)
 	data->resolved = malloc(sizeof(char *));
 	data->resolved[0] = 0;
 	data->flags = NULL;
-	data->len = 0;
+	data->conv = 0;
 	data->larg = -1;
 	data->prec = -1;
+//	data->flag_tab['0'] = &flag_zero;
 	data->flag_tab['d'] = &flag_d_signed;
 	data->flag_tab['i'] = &flag_d_signed;
 	data->flag_tab['o'] = &flag_o_unsigned;
@@ -33,15 +34,15 @@ t_struct	*fill_struct(t_struct *data, va_list *ap)
 	data->flag_tab['X'] = &flag_hex_unsigned_maj;
 	data->flag_tab['c'] = &flag_c;
 	data->flag_tab['s'] = &flag_s;
-//	lol->flag_tab['p'] = flag_p;
-//	lol->flag_tab['-'] = ;
-//	lol->flag_tab['+'] = ;
-//	lol->flag_tab[' '] = ;
+	data->flag_tab['p'] = &flag_p;
+	data->flag_tab['-'] = &flag_moins;
+	data->flag_tab['+'] = &flag_plus;
+	data->flag_tab[' '] = &flag_space;
 	data->flag_tab['#'] = &flag_diese;
-/*	lol->flag_tab['*'] = ; < bonus
-	lol->flag_tab['h'] = ;
-	lol->flag_tab['l'] = ;
-	lol->flag_tab['j'] = ;
-	lol->flag_tab['z'] = ; */
+/*	data->flag_tab['*'] = ; < bonus
+	data->flag_tab['h'] = ;
+	data->flag_tab['l'] = ;
+	data->flag_tab['j'] = ;
+	data[->flag_tab['z'] = ; */
 	return (data);
 }

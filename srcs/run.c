@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/11 17:24:26 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/12 15:46:10 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@ void	la_resolvance(t_struct *data)
 	while (data->flags[i])
 	{
 		printf("|resolv| le flag traited = %c\n", data->flags[i]);
+		if (data->flags[i] <= '9' && data->flags[i] >= '1')
+		{
+			i += flag_larg(data, data->flags + i);
+		}
 		data->flag_tab[data->flags[i]](data);
 		printf("|resolv| data->ret = %s\n", data->resolved);
-	i++;
+		i++;
 	}
 }
 
@@ -66,7 +70,7 @@ int		ft_printf(char *str,...)
 
 int		main(void)
 {
-	ft_printf("Arthur %#x le toxo", 255, 255, 255);
+	ft_printf("Arthur %8d le mangeur de tic tac", -97);
 	return (0);
 }
 

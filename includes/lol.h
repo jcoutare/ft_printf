@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 12:19:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/11 15:13:22 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/12 15:44:20 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LOL_H
@@ -23,6 +23,8 @@ typedef union mon_union
 
 typedef struct s_struct
 {
+	int flag;
+	int conv;
 	int larg;
 	int prec;
 	int endflags;
@@ -30,7 +32,6 @@ typedef struct s_struct
 	char *flags;
 	char *resolved;
 	char *fstring;
-	int len;
 	void (*flag_tab[127])(struct s_struct *data);
 }				t_struct;
 
@@ -40,6 +41,11 @@ int     strichr(char *str, char c);
 int     strichr_str(char *str, char *chr);
 char	*ft_itoa_base(unsigned int nbr, int base);
 t_struct	*fill_struct(t_struct *data, va_list *ap);
+int		flag_larg(t_struct *data, char *flags);
+void    flag_moins(t_struct *data);
+void    flag_p(t_struct *data);
+void	flag_plus(t_struct *data);
+void	flag_space(t_struct *data);
 void	flag_diese(t_struct *data);
 void    flag_d_signed(t_struct *data);
 void    flag_d_unsigned(t_struct *data);
