@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 15:19:25 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/11 14:37:46 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/12 17:38:23 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		strichr(char *str, char c)
 			return (i);
 		i++;
 	}
-	return (0);
+	return (-1);
 }
 
 int		strichr_str(char *str, char *chr)

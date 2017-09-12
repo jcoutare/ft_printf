@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/12 15:46:10 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/12 17:39:59 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char	*get_flags(char *str, t_struct *data)
 void	decoupe(char *str, t_struct *data)
 {
 	int  i = 0;
-	while (strichr(str, '%') != 0)
+	while (strichr(str, '%') != -1)
 	{
 		data->fstring = ft_strnjoin(data->fstring, str, strichr(str, '%'));
 		str = get_flags(str + strichr(str, '%'), data);
@@ -70,7 +70,8 @@ int		ft_printf(char *str,...)
 
 int		main(void)
 {
-	ft_printf("Arthur %8d le mangeur de tic tac", -97);
+	ft_printf("%8d", -97);
+	printf("|THEREAL| = %8d\n", -97);
 	return (0);
 }
 
