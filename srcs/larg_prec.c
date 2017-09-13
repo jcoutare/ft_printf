@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 17:21:50 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/13 12:42:45 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/13 13:02:03 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	larg(t_struct *data, int arg)
 		ft_memset(str, ' ', size);
 		data->resolved = ft_strjoin(data->resolved, str);
 	}
+	free(str);
 }
 
 void	larg_moins(t_struct *data, int arg)
@@ -45,4 +46,5 @@ void	larg_moins(t_struct *data, int arg)
 	str = ft_strnew(size);
 	ft_memset(str, ' ', size);
 	data->resolved = ft_strjoin(data->resolved, str);
+	free(str);
 }
