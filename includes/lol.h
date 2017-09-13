@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 12:19:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/12 17:33:07 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/13 12:42:59 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LOL_H
@@ -35,6 +35,7 @@ typedef struct s_struct
 	void (*flag_tab[127])(struct s_struct *data);
 }				t_struct;
 
+void    larg_moins(t_struct *data, int arg);
 char    *ft_strnjoin(char const *s1, char const *s2, int n);
 char    *cpy_until_c(char *str, int c);
 int     strichr(char *str, char c);

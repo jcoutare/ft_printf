@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 17:21:50 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/12 17:33:52 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/13 12:42:45 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,34 @@
 
 void	larg(t_struct *data, int arg)
 {
-	int i;
+	char *str;
+	int size;
 
-	i = 0;
-	if (data->flag == 4 && arg < 0)
+	size = data->larg - ft_strlen(ft_itoa(arg));
+	str = ft_strnew(size);
+	if (data->flag == 5 && arg < 0)
+	{
 		data->resolved = ft_strjoin(data->resolved, "-");
+	}
 	if (data->flag == 5)
 	{
-		while (i < (data->larg - ft_strlen(ft_itoa(arg))))
-		{
-			data->resolved = ft_strjoin(data->resolved, "0");
-			i++;
-		}
+		ft_memset(str, '0', size);
+		data->resolved = ft_strjoin(data->resolved, str);
 	}
-	else
+	else if (data->flag != 4)
 	{
-		while (i < (data->larg - ft_strlen(ft_itoa(arg))))
-		{
-			data->resolved = ft_strjoin(data->resolved, " ");
-			i++;
-		}
+		ft_memset(str, ' ', size);
+		data->resolved = ft_strjoin(data->resolved, str);
 	}
+}
+
+void	larg_moins(t_struct *data, int arg)
+{
+	char *str;
+	int size;
+
+	size = data->larg - ft_strlen(ft_itoa(arg));
+	str = ft_strnew(size);
+	ft_memset(str, ' ', size);
+	data->resolved = ft_strjoin(data->resolved, str);
 }

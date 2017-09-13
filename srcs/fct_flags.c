@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:38:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/12 17:33:35 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/13 11:38:47 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,5 @@ void	flag_space(t_struct *data)
 
 void	flag_zero(t_struct *data)
 {
-	printf("zsh\n");
 	data->flag = 5;
 }

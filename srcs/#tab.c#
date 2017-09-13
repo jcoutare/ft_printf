@@ -26,7 +26,7 @@ t_struct	*fill_struct(t_struct *data, va_list *ap)
 	data->larg = -1;
 	data->prec = -1;
 	data->flag = 0;
-	data->flag_tab['0'] = &flag_zero;
+]	data->flag_tab['0'] = &flag_zero;
 	data->flag_tab['d'] = &flag_d_signed;
 	data->flag_tab['i'] = &flag_d_signed;
 	data->flag_tab['o'] = &flag_o_unsigned;

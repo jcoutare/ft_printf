@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/12 17:39:59 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/13 12:56:34 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ void	la_resolvance(t_struct *data)
 		{
 			i += flag_larg(data, data->flags + i);
 		}
+		printf("|resolv| le flag apres larg = %c\n", data->flags[i]);
 		data->flag_tab[data->flags[i]](data);
-		printf("|resolv| data->ret = %s\n", data->resolved);
+		printf("|resolv| data->resolved = %s\n", data->resolved);
 		i++;
 	}
 }
@@ -63,54 +64,42 @@ int		ft_printf(char *str,...)
 	va_start(ap, str);
 	data = fill_struct(data, &ap);
 	decoupe(copy, data);
-	printf("|FSTRING| = %s\n", data->fstring);
+	ft_putstr(data->fstring);
 	va_end(ap);
 	return (0);
 }
 
 int		main(void)
 {
-	ft_printf("%8d", -97);
-	printf("|THEREAL| = %8d\n", -97);
+	printf("--------[#]-------\n");
+	ft_printf("|FSTRING| = %#10x|\n", 97);
+	printf("|THEREAL| = %#10x|\n", 97);
+	printf("--------[+]-------\n");
+	ft_printf("|FSTRING| = %+15d|\n", -97);
+	printf("|THEREAL| = %+15d|\n", -97);
+	printf("--------[' ']-----\n");
+	ft_printf("|FSTRING| = % 5d|\n", -97);
+	printf("|THEREAL| = % 5d|\n", -97);
+	printf("--------[-]-------\n");
+	ft_printf("|FSTRING| = %-10d|\n", -97);
+	printf("|THEREAL| = %-10d|\n", -97);
+	printf("--------[0]-------\n");
+	ft_printf("|FSTRING| = %042d %-10d|\n", -97, -97);
+	printf("|THEREAL| = %042d %-10d|\n", -97, -97);
+/*	printf("----------------\n");
+	ft_printf("|FSTRING| = % 10d", -97);
+	printf("|THEREAL| = % 10d\n", -97);
+	printf("----------------\n");
+	ft_printf("|FSTRING| = % 10d", -97);
+	printf("|THEREAL| = % 10d\n", -97);
+	printf("----------------\n");
+	ft_printf("|FSTRING| = % 10d", -97);
+	printf("|THEREAL| = % 10d\n", -97);
+	printf("----------------\n");
+	ft_printf("|FSTRING| = % 10d", -97);
+	printf("|THEREAL| = % 10d\n", -97);
+	printf("----------------\n");
+	ft_printf("|FSTRING| = % 10d", -97);
+	printf("|THEREAL| = % 10d\n", -97); */
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*POUBELLE
-	if (lol->fstring == NULL)
-	{
-
-		printf("|FSTRING| = %s\n", lol->fstring);
-		printf("|STR| = %s\n", str);
-		get_flags(str + strichr(str, '%'), lol);
-		str = str + lol->endflags;
-		printf("|STR| = %s\n", str);
-		lol->fstring = ft_strjoin(lol->fstring, lol->resolved);
-		printf("|FSTRING| = %s\n", lol->fstring);
-		ft_memset(lol->resolved, '\0', ft_strlen(lol->resolved));
-	}
-	while (strichr(str, '%') != 0)
-	{
-		lol->fstring = ft_strnjoin(lol->fstring, str, strichr(str, '%'));
-		printf("|FSTRING| = %s\n", lol->fstring);
-		get_flags(str + strichr(str, '%'), lol);
-		str = str + lol->endflags;
-		lol->fstring = ft_strjoin(lol->fstring, lol->resolved);
-		ft_memset(lol->resolved, '\0', ft_strlen(lol->resolved));
-	}*/

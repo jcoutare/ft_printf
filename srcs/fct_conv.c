@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/12 17:25:31 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/13 12:55:19 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,17 @@ void	flag_d_signed(t_struct *data)
 
 	data->conv = 1;
 	arg = va_arg(*data->ap, int);
-	if (data->larg > ft_strlen(ft_itoa(arg)))
+	if (data->larg > (int)ft_strlen(ft_itoa(arg)) && data->flag != 4)
+	{
 		larg(data, arg);
-	if (data->flag == 2)
+		if (data->flag == 5 && arg < 0)
+			arg = arg * -1;
+	}
+	else if (data->flag == 2)
 		data->resolved = ft_strjoin(data->resolved, "+");
 	data->resolved = ft_strjoin(data->resolved, ft_itoa(arg));
+	if (data->larg > (int)ft_strlen(ft_itoa(arg)) && data->flag == 4)
+		larg_moins(data, arg);
 }
 
 void	flag_d_unsigned(t_struct *data)
