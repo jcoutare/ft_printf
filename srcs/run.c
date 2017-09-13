@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/13 12:56:34 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/13 14:13:51 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,35 +71,38 @@ int		ft_printf(char *str,...)
 
 int		main(void)
 {
+/*
+  printf("--------[%D]------\n");
+  printf("--------[#]-------\n");
+  ft_printf("|FSTRING| = %#10d|\n", 97);
+  printf("|THEREAL| = %#10d|\n", 97);
+  printf("--------[+]-------\n");
+  ft_printf("|FSTRING| = %+15d|\n", -97);
+  printf("|THEREAL| = %+15d|\n", -97);
+  printf("--------[' ']-----\n");
+  ft_printf("|FSTRING| = % 5d|\n", -97);
+  printf("|THEREAL| = % 5d|\n", -97);
+  printf("--------[-]-------\n");
+  ft_printf("|FSTRING| = %-10d|\n", -97);
+  printf("|THEREAL| = %-10d|\n", -97);
+  printf("--------[0]-------\n");
+  ft_printf("|FSTRING| = %042d %-10d|\n", -97, -97);
+  printf("|THEREAL| = %042d %-10d|\n", -97, -97); */
+	printf("--------[%x]------\n", 42);
 	printf("--------[#]-------\n");
 	ft_printf("|FSTRING| = %#10x|\n", 97);
 	printf("|THEREAL| = %#10x|\n", 97);
-	printf("--------[+]-------\n");
-	ft_printf("|FSTRING| = %+15d|\n", -97);
-	printf("|THEREAL| = %+15d|\n", -97);
-	printf("--------[' ']-----\n");
-	ft_printf("|FSTRING| = % 5d|\n", -97);
-	printf("|THEREAL| = % 5d|\n", -97);
+/*	printf("--------[+]-------\n"); < UDB (x)
+	ft_printf("|FSTRING| = %+15x|\n", 97);
+	printf("|THEREAL| = %+15x|\n", 97);
+	printf("--------[' ']-----\n"); < UDB (x)
+	ft_printf("|FSTRING| = % 5x|\n", 97);
+	printf("|THEREAL| = % 5x|\n", 97); */
 	printf("--------[-]-------\n");
-	ft_printf("|FSTRING| = %-10d|\n", -97);
-	printf("|THEREAL| = %-10d|\n", -97);
+	ft_printf("|FSTRING| = %-10x|\n", 97);
+	printf("|THEREAL| = %-10x|\n", 97);
 	printf("--------[0]-------\n");
-	ft_printf("|FSTRING| = %042d %-10d|\n", -97, -97);
-	printf("|THEREAL| = %042d %-10d|\n", -97, -97);
-/*	printf("----------------\n");
-	ft_printf("|FSTRING| = % 10d", -97);
-	printf("|THEREAL| = % 10d\n", -97);
-	printf("----------------\n");
-	ft_printf("|FSTRING| = % 10d", -97);
-	printf("|THEREAL| = % 10d\n", -97);
-	printf("----------------\n");
-	ft_printf("|FSTRING| = % 10d", -97);
-	printf("|THEREAL| = % 10d\n", -97);
-	printf("----------------\n");
-	ft_printf("|FSTRING| = % 10d", -97);
-	printf("|THEREAL| = % 10d\n", -97);
-	printf("----------------\n");
-	ft_printf("|FSTRING| = % 10d", -97);
-	printf("|THEREAL| = % 10d\n", -97); */
+	ft_printf("|FSTRING| = %#042x %#-10x|\n", 97, 42);
+	printf("|THEREAL| = %#042x %#-10x|\n", 97, 42);
 	return (0);
 }

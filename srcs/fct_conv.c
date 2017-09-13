@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/13 12:55:19 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/13 16:10:46 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	flag_d_signed(t_struct *data)
 {
 	int arg;
 
-	data->conv = 1;
+ 	data->conv = 1;
 	arg = va_arg(*data->ap, int);
 	if (data->larg > (int)ft_strlen(ft_itoa(arg)) && data->flag != 4)
 	{
@@ -59,6 +59,8 @@ void	flag_hex_unsigned(t_struct *data)
 	i = 0;
 	data->conv = 1;
 	arg = va_arg(*data->ap, unsigned int);
+	if (data->larg > (int)ft_strlen(ft_itoa_base(arg, 16)) && data->flag != 4)
+		larg(data, arg);
 	if (data->flag == 2)
 		data->resolved = ft_strjoin(data->resolved, "+");
 	data->resolved = ft_strjoin(data->resolved, ft_itoa_base(arg, 16));
@@ -67,6 +69,8 @@ void	flag_hex_unsigned(t_struct *data)
 		data->resolved[i] = ft_tolower(data->resolved[i]);
 		i++;
 	}
+	if (data->larg > (int)ft_strlen(ft_itoa_base(arg, 16)) && data->flag == 4)
+		larg_moins(data, arg);
 }
 
 void	flag_hex_unsigned_maj(t_struct *data)

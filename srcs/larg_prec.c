@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 17:21:50 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/13 13:02:03 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/13 16:44:13 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void	larg(t_struct *data, int arg)
 {
 	char *str;
 	int size;
+	size_t lol;
 
-	size = data->larg - ft_strlen(ft_itoa(arg));
+	lol = ft_strlen(ft_itoa_base(arg, 16)) + ft_strlen(data->resolved);
+	size = data->larg - (int)lol;
 	str = ft_strnew(size);
 	if (data->flag == 5 && arg < 0)
 	{
