@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 15:58:05 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/12 17:32:46 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/15 15:41:33 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 int		main(void)
 {
-	void *i = 0;
-	printf("%8d\n", -97);
-	printf("atoi = %d\n", ft_atoi("8.2s"));
+	unsigned int i = 42;
+
+	i = i * -1;
+	printf("%u", i);
 }
 
 /*JEAN-POUBELLE

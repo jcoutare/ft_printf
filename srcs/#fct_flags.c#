@@ -37,7 +37,7 @@ int		flag_prec(t_struct *data, char *flags)
 void	flag_diese(t_struct *data)
 {
 	data->f_sharp = 1;
-	make_diese(data);
+	//make_diese(data);
 }
 
 void	flag_moins(t_struct *data)

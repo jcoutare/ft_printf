@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 12:19:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/13 12:42:59 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/15 15:27:56 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LOL_H
@@ -23,11 +23,23 @@ typedef union mon_union
 
 typedef struct s_struct
 {
-	int flag;
+	int modif_l;
+	int modif_ll;
+	int modif_h;
+	int modif_hh;
+	int modif_j;
+	int modif_z;
+	int f_sharp;
+	int f_zero;
+	int f_plus;
+	int f_moins;
+	int f_space;
 	int conv;
 	int larg;
+	int m_larg;
 	int prec;
-	int endflags;
+	int m_prec;
+	unsigned long long arg;
 	va_list *ap;
 	char *flags;
 	char *resolved;
@@ -35,12 +47,19 @@ typedef struct s_struct
 	void (*flag_tab[127])(struct s_struct *data);
 }				t_struct;
 
-void    larg_moins(t_struct *data, int arg);
+void	modif_l(t_struct *data);
+void	modif_ll(t_struct *data);
+void	modif_h(t_struct *data);
+void	modif_hh(t_struct *data);
+void	modif_j(t_struct *data);
+void	modif_z(t_struct *data);
+void    make_diese(t_struct *data);
+int     flag_prec(t_struct *data, char *flags);
+void    larg_moins(t_struct *data);
 char    *ft_strnjoin(char const *s1, char const *s2, int n);
-char    *cpy_until_c(char *str, int c);
 int     strichr(char *str, char c);
 int     strichr_str(char *str, char *chr);
-char	*ft_itoa_base(unsigned int nbr, int base);
+char	*ft_itoa_base(unsigned int nbr, unsigned int base);
 t_struct	*fill_struct(t_struct *data, va_list *ap);
 void	larg(t_struct *data, int arg);
 void	flag_zero(t_struct *data);

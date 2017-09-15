@@ -6,7 +6,7 @@
 #    By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/16 11:07:45 by jcoutare          #+#    #+#              #
-#    Updated: 2017/08/17 11:13:34 by jcoutare         ###   ########.fr        #
+#    Updated: 2017/09/14 14:52:38 by jcoutare         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,11 +14,17 @@ NAME = ft_printf
 
 CC = GCC
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra
 
 INCLUDES += -I libft.h \
 
-SRC = srcs/lol.c
+SRC = srcs/fct_conv.c \
+	srcs/fct_flags.c \
+	srcs/itoa_base.c \
+	srcs/larg_prec.c \
+	srcs/run.c \
+	srcs/run_tools.c \
+	srcs/tab.c
 
 OBJ = $(SRC:.c=.o)
 

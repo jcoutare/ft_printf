@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/13 16:10:46 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/15 15:41:23 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,7 @@ void	flag_d_signed(t_struct *data)
 	int arg;
 
  	data->conv = 1;
-	arg = va_arg(*data->ap, int);
-	if (data->larg > (int)ft_strlen(ft_itoa(arg)) && data->flag != 4)
-	{
-		larg(data, arg);
-		if (data->flag == 5 && arg < 0)
-			arg = arg * -1;
-	}
-	else if (data->flag == 2)
-		data->resolved = ft_strjoin(data->resolved, "+");
-	data->resolved = ft_strjoin(data->resolved, ft_itoa(arg));
-	if (data->larg > (int)ft_strlen(ft_itoa(arg)) && data->flag == 4)
-		larg_moins(data, arg);
+ 	data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg));
 }
 
 void	flag_d_unsigned(t_struct *data)
@@ -37,8 +26,6 @@ void	flag_d_unsigned(t_struct *data)
 
 	data->conv = 1;
 	arg = va_arg(*data->ap, int);
-	if (data->flag == 2)
-		data->resolved = ft_strjoin(data->resolved, "+");
 	data->resolved = ft_itoa(arg);
 }
 
@@ -58,19 +45,14 @@ void	flag_hex_unsigned(t_struct *data)
 
 	i = 0;
 	data->conv = 1;
+	printf("pute\n");
 	arg = va_arg(*data->ap, unsigned int);
-	if (data->larg > (int)ft_strlen(ft_itoa_base(arg, 16)) && data->flag != 4)
-		larg(data, arg);
-	if (data->flag == 2)
-		data->resolved = ft_strjoin(data->resolved, "+");
 	data->resolved = ft_strjoin(data->resolved, ft_itoa_base(arg, 16));
 	while (data->resolved[i])
 	{
 		data->resolved[i] = ft_tolower(data->resolved[i]);
 		i++;
 	}
-	if (data->larg > (int)ft_strlen(ft_itoa_base(arg, 16)) && data->flag == 4)
-		larg_moins(data, arg);
 }
 
 void	flag_hex_unsigned_maj(t_struct *data)

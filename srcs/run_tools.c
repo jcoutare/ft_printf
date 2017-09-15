@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 15:19:25 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/12 17:38:23 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/14 13:43:28 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,23 +79,12 @@ int		strichr_str(char *str, char *chr)
 	return (0);
 }
 
-char	*cpy_until_c(char *str, int c)
+char ft_is_neg(int nb)
 {
-	int i;
-	char *dst;
-	int j;
+	char c;
 
-	j = 0;
-	i = 0;
-	while (str[i] && str[i] != c)
-		i++;
-	if ((dst = malloc(sizeof(char *) * (i + 1))) == NULL)
-		return (NULL);
-	dst[i] = '\0';
-	while (j < i)
-	{
-		dst[j] = str[j];
-		j++;
-	}
-	return (dst);
+	c = '+';
+	if (nb < 0)
+		c = '-';
+	return (c);
 }
