@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 17:21:50 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/18 16:20:10 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/18 16:53:09 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ void	larg(t_struct *data)
 {
 	char *str;
 
+	str = NULL;
 	data->larg = data->larg - (int)ft_strlen(data->resolved);
-	printf("lele %d\n", ft_strlen(data->resolved));
 	str = ft_strnew(data->larg);
-	ft_memset(str, ' ', data->larg - 1); //-1 du scotch
+	printf("data->larg = %d\n", data->larg);
+	str = ft_memset(str, ' ', data->larg); //-1 du scotch
+	printf(">%s|\n", str);
 	data->resolved = ft_strjoin(str, data->resolved);
 	data->larg = 0;
 }

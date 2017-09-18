@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/18 16:20:41 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/18 16:53:55 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ int		main(void)
 	ft_printf("|FSTRING| = %- 8.4d|\n", -97);
 	printf("|THEREAL| = %- 8.4d|\n", -97);
 	printf("--------[0]-------\n");
-	ft_printf("|FSTRING| = %08.4d|\n", 97);
+	ft_printf("|FSTRING| =%08.4d|\n", 97);
 	printf("|THEREAL| =%08.4d|\n", 97);
-	ft_printf("|FSTRING| = %08.4d,%08.4d|\n",-97, -97);
+	ft_printf("|FSTRING| =%08.4d,%08.4d|\n",-97, -97);
 	printf("|THEREAL| =%08.4d,%08.4d|\n", -97, -97);
 /*	printf("--------[0 ]-------\n");
 //	ft_printf("|FSTRING| = %10d|\n", 97);

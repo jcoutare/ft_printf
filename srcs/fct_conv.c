@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/18 16:23:09 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/18 16:34:08 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	flag_d_signed(t_struct *data)
 		if (data->f_plus == 1)
 		{
 			printf("data->f_plus = 1\n");
-			data->larg++; // scotch
 		 	if ((long long)data->arg > 0)
 				data->resolved[0] = '+';
 		}

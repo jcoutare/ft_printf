@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:44:30 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/18 14:03:20 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/18 16:32:52 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,8 @@ t_struct	*fill_struct(t_struct *data, va_list *ap)
 	data->resolved[0] = 0;
 	data->flags = NULL;
 	data->conv = 0;
-	data->larg = -1;
-	data->m_larg = 0;
-	data->prec = -1;
-	data->m_prec = 0;
+	data->larg = 0;
+	data->prec = 0;
 	data->modif = 0;
 	data->modif_l = 0;
 	data->modif_ll = 0;

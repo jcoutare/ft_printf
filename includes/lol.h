@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 12:19:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/18 15:32:32 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/18 16:32:00 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LOL_H
@@ -39,9 +39,7 @@ typedef struct s_struct
 	int f_space;
 	int conv;
 	int larg;
-	int m_larg;
 	int prec;
-	int m_prec;
 	char *sarg;
 	unsigned long long arg;
 	va_list *ap;
