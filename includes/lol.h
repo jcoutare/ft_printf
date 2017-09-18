@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 12:19:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/15 15:27:56 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/18 15:32:32 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LOL_H
@@ -14,6 +14,8 @@
 # include "../libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h> // < jean michel l'arnaque
+# include <sys/types.h>
+
 typedef union mon_union
 {
     int i;
@@ -23,6 +25,7 @@ typedef union mon_union
 
 typedef struct s_struct
 {
+	int modif;
 	int modif_l;
 	int modif_ll;
 	int modif_h;
@@ -39,6 +42,7 @@ typedef struct s_struct
 	int m_larg;
 	int prec;
 	int m_prec;
+	char *sarg;
 	unsigned long long arg;
 	va_list *ap;
 	char *flags;
@@ -47,21 +51,22 @@ typedef struct s_struct
 	void (*flag_tab[127])(struct s_struct *data);
 }				t_struct;
 
+void	prec(t_struct *data);
 void	modif_l(t_struct *data);
 void	modif_ll(t_struct *data);
 void	modif_h(t_struct *data);
 void	modif_hh(t_struct *data);
 void	modif_j(t_struct *data);
 void	modif_z(t_struct *data);
-void    make_diese(t_struct *data);
+void    make_sharp(t_struct *data);
 int     flag_prec(t_struct *data, char *flags);
 void    larg_moins(t_struct *data);
 char    *ft_strnjoin(char const *s1, char const *s2, int n);
 int     strichr(char *str, char c);
 int     strichr_str(char *str, char *chr);
-char	*ft_itoa_base(unsigned int nbr, unsigned int base);
+char	*ft_itoa_base(unsigned long long nbr, unsigned int base);
 t_struct	*fill_struct(t_struct *data, va_list *ap);
-void	larg(t_struct *data, int arg);
+void	larg(t_struct *data);
 void	flag_zero(t_struct *data);
 int		flag_larg(t_struct *data, char *flags);
 void    flag_moins(t_struct *data);

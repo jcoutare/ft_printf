@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:44:30 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/15 15:41:30 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/18 14:03:20 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_struct	*fill_struct(t_struct *data, va_list *ap)
 	if (!(data = malloc(sizeof(t_struct))))
 		return (NULL);
 	data->arg = 0;
+	data->sarg = 0;
 	data->ap = ap;
 	data->fstring = malloc(sizeof(char *));
 	data->fstring[0] = 0;
@@ -33,6 +34,7 @@ t_struct	*fill_struct(t_struct *data, va_list *ap)
 	data->m_larg = 0;
 	data->prec = -1;
 	data->m_prec = 0;
+	data->modif = 0;
 	data->modif_l = 0;
 	data->modif_ll = 0;
 	data->modif_h = 0;

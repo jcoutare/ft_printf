@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:38:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/15 10:53:28 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/18 14:48:09 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		flag_prec(t_struct *data, char *flags)
 
 	i = 1;
 	data->prec = ft_atoi(flags);
-	i += (int)ft_strlen(ft_itoa(data->larg));
+	i += (int)ft_strlen(ft_itoa(data->prec));
 	printf("prec = %d\n", data->prec);
 	return (i);
 }
@@ -37,7 +37,7 @@ int		flag_prec(t_struct *data, char *flags)
 void	flag_diese(t_struct *data)
 {
 	data->f_sharp = 1;
-	make_diese(data);
+//	make_diese(data);
 }
 
 void	flag_moins(t_struct *data)

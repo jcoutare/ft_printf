@@ -6,13 +6,13 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/15 10:20:56 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/15 15:28:38 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/18 16:12:12 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lol.h"
 
-void	make_diese(t_struct *data)
+void	make_sharp(t_struct *data)
 {
 	if (data->flags[ft_strlen(data->flags - 1)] != 'o' &&
 		data->flags[ft_strlen(data->flags - 1)] != 'x')
@@ -30,13 +30,14 @@ void	make_moins(t_struct *data)
 {
 	char *str;
 
-	if (data->m_larg <= 0)
-		return ;
-	if (!(str = ft_strnew(data->m_larg)))
-		return ;
-	str = ft_memset(str, ' ', data->m_larg);
-	if (!(data->resolved = ft_strjoin(data->resolved, str)))
-		return ;
+	data->larg = data->larg - (int)ft_strlen(data->resolved);
+	if (data->larg > 0)
+	{
+		str = ft_strnew(data->larg);
+		ft_memset(str, ' ', data->larg);
+		data->resolved = ft_strjoin(data->resolved, str); //data->resolved leak
+	}
+	data->larg = 0;
 }
 
 void	make_plus(t_struct *data, int signe)
@@ -57,15 +58,12 @@ void	make_zero(t_struct *data)
 {
 	char *str;
 
-	if (data->f_moins == 1)
+	data->larg = data->larg - (int)ft_strlen(data->resolved);
+	if (data->larg <= 0)
 		return ;
-	if (data->m_prec != -1)
+	if (!(str = ft_strnew(data->larg)))
 		return ;
-	if (data->m_larg <= 0)
-		return ;
-	if (!(str = ft_strnew(data->m_larg)))
-		return ;
-	str = ft_memset(str, '0', data->m_larg);
+	str = ft_memset(str, '0', data->larg);
 	if (!(data->resolved = ft_strjoin(data->resolved, str)))
-		return ;
+ 		return ;
 }
