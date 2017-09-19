@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/19 16:25:51 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/19 16:32:12 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	la_resolvance(t_struct *data)
 {
 	int i;
 	int c;
+
 	i = 1;
 	printf("[%s]\n", data->flags);
 	while (data->flags[i])
@@ -29,7 +30,6 @@ void	la_resolvance(t_struct *data)
 			i += flag_prec(data, (data->flags + i + 1));
 		}
 		c = data->flags[i];
-//		printf("le flag traited = %c\n", data->flags[i]);
 		data->flag_tab[c](data);
 		i++;
 	}
@@ -57,7 +57,7 @@ void	decoupe(char *str, t_struct *data)
 	data->fstring = ft_strjoin(data->fstring, str);
 }
 
- int		ft_printf(char *str,...)
+int		ft_printf(char *str,...)
 {
 	va_list ap;
 	char *copy = ft_strdup(str);
