@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:38:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/19 12:13:10 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/19 14:50:37 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int		flag_prec(t_struct *data, char *flags)
 
 void	flag_diese(t_struct *data)
 {
+	printf("data->f_sharp = 1\n");
 	data->f_sharp = 1;
-//	make_diese(data);
 }
 
 void	flag_moins(t_struct *data)
