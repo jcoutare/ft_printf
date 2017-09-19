@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/15 10:20:56 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/19 14:02:36 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/19 15:54:38 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	make_zero(t_struct *data)
 	char *str;
 
 	data->larg = data->larg - (int)ft_strlen(data->resolved);
-	printf("data->larg - strlen(resolved) = %d\n", data->larg);
+//	printf("data->larg - strlen(resolved) = %d\n", data->larg);
 	if (data->larg > 0)
 	{
 		if ((long long)data->arg < 0)

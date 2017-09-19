@@ -6,11 +6,11 @@
 #    By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/16 11:07:45 by jcoutare          #+#    #+#              #
-#    Updated: 2017/09/14 14:52:38 by jcoutare         ###   ########.fr        #
+#    Updated: 2017/09/19 15:53:20 by jcoutare         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-NAME = ft_printf
+NAME = libftprintf.a
 
 CC = GCC
 
@@ -24,8 +24,9 @@ SRC = srcs/fct_conv.c \
 	srcs/larg_prec.c \
 	srcs/run.c \
 	srcs/run_tools.c \
-	srcs/tab.c
-
+	srcs/tab.c \
+	srcs/make_flags.c \
+	srcs/fct_modif.c
 OBJ = $(SRC:.c=.o)
 
 LIB = libft
@@ -38,7 +39,7 @@ $(NAME): $(OBJ)
 			@echo "Lib'Compil"
 			@make -C $(LIB)
 			@echo "Printf'Compil"
-			@gcc -o $(NAME) $(OBJ) $(LIBPATH)
+			@ar rcs $(NAME) $(OBJ) $(LIBPATH)
 
 clean:
 		@echo "Lib'Del"
