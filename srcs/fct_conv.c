@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/19 13:13:58 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/19 13:40:06 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	flag_d_signed(t_struct *data)
 	}
 	else if (data->larg > 0)
 		larg(data);
-	printf("coucou\n");
 }
 
 void	flag_d_unsigned(t_struct *data)
