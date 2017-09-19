@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 17:21:50 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/18 16:53:09 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/19 12:29:43 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	prec(t_struct *data)
 	char *str;
 
 	data->prec = data->prec - ft_strlen(ft_itoa(data->arg));
+	printf("data->prec - strlen(arg) = %d\n", data->prec);
 	if (data->prec > 0)
 	{
 		if ((long long)data->arg < 0)
@@ -53,6 +54,5 @@ void	prec(t_struct *data)
 		data->resolved = ft_strjoin(data->resolved, str);
 		free(str);
 	}
-	data->f_zero = 0;
 	data->prec = 0;
 }

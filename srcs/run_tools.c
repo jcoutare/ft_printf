@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 15:19:25 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/14 13:43:28 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/19 13:10:32 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,34 @@ char	*ft_strnjoin(char const *s1, char const *s2, int n)
 	return (str);
 }
 
+char	*ft_strjoin_nf(char const *s1, char const *s2)
+{
+	char		*str;
+	size_t		i;
+	size_t		j;
+	size_t		size;
+
+	i = 0;
+	j = 0;
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	size = ft_strlen(s1) + ft_strlen(s2);
+	if ((str = malloc(sizeof(char) * (size + 1))) == 0)
+		return (NULL);
+	while (s1[i])
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	while (s2[j])
+	{
+		str[i + j] = s2[j];
+		j++;
+	}
+	str[i + j] = '\0';
+	return (str);
+}
+
 int		strichr(char *str, char c)
 {
 	int i;
@@ -68,10 +96,7 @@ int		strichr_str(char *str, char *chr)
 		while (chr[j])
 		{
 			if (str[i] == chr[j])
-			{
-				printf("stop at : %c\n", str[i]);
 				return (i);
-			}
 			j++;
 		}
 		i++;
