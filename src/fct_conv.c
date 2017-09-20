@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/20 17:34:20 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/20 17:43:09 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,8 @@ void	flag_o_unsigned(t_struct *data)
 		prec(data);
 		data->f_zero = 0;
 	}
-	data->resolved = ft_itoa_base(data->arg, 8);
+	if (data->arg != 0)
+		data->resolved = ft_strjoin(data->resolved, ft_itoa_base(data->arg, 8));
 	le_cafe(data);
 	while (data->resolved[i])
 	{
