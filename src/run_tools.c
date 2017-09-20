@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 15:19:25 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/20 17:11:12 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/20 17:28:20 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,11 @@ int		strcheck(char *str, char *check)
 			j++;
 		}
 		if (ok == 0)
+		{
+			//	printf("le pas beau = >%c<\n", str[i]);
 			return (i);
-		i++;
+		}
+	i++;
 	}
 	return (-1);
 }

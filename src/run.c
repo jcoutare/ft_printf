@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/20 17:15:58 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/20 17:22:03 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,15 @@ void	la_resolvance(t_struct *data)
 
 char	*get_flags(char *str, t_struct *data)
 {
-//	int validflags;
+	int validflags;
 
-//	if ((validflags = strcheck(str, "%-+ #hljzsSpdDioOuUxXcC.") != -1))
-		//	return (str + validflags + 1);
+//	printf("str = %s\n", str);
 	data->flags = ft_strsub(str, 0, strichr_str(str, "sSpdDioOuUxXcC") + 1);
+	if ((validflags = strcheck(data->flags, "%-+ #hljzsSpdDioOuUxXcC.") != -1))
+	{
+		//	printf("Val_strcheck= %d\n", validflags);
+		return (str + validflags + 1);
+	}
 	if (str[0] == '%' && str[1] == '%')
 	{
 		flag_pourcent(data);

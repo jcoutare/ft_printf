@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 17:21:50 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/19 15:54:02 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/20 17:28:27 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	larg(t_struct *data)
 	if (data->larg > 0)
 	{
 		str = ft_strnew(data->larg);
-		printf("data->larg = %d\n", data->larg);
+//		printf("data->larg = %d\n", data->larg);
 		str = ft_memset(str, ' ', data->larg); //-1 du scotch
 		data->resolved = ft_strjoin(str, data->resolved);
 	}

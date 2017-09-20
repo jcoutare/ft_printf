@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/20 16:13:56 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/20 17:34:20 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ void	le_cafe(t_struct *data)
 	{
 		if (data->f_moins == 1)
 		{
-			printf("data->f_moins = 1\n");
+			//printf("data->f_moins = 1\n");
 			make_moins(data);
 		}
 		else if (data->f_zero == 1)
 		{
-			printf("data->f_zero = 1\n");
+			//printf("data->f_zero = 1\n");
 			make_zero(data);
 		}
 	}
@@ -64,7 +64,7 @@ void	flag_d_signed(t_struct *data)
 		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg * -1));
 		data->larg -= 2;
 	}
-	else
+	else if (data->arg != 0)
 		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg));
 	le_cafe(data);
 }
