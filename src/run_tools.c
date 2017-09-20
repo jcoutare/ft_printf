@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 15:19:25 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/19 15:49:23 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/20 17:11:12 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,26 @@ int		strichr_str(char *str, char *chr)
 	return (0);
 }
 
-char ft_is_neg(int nb)
+int		strcheck(char *str, char *check)
 {
-	char c;
+	int i;
+	int j;
+	int ok;
 
-	c = '+';
-	if (nb < 0)
-		c = '-';
-	return (c);
+	i = 0;
+	while (str[i])
+	{
+		j = 0;
+		ok = 0;
+		while (check[j])
+		{
+			if (str[i] == check[j] || (str[i] <= '9' && str[i] >= '0'))
+				ok = 1;
+			j++;
+		}
+		if (ok == 0)
+			return (i);
+		i++;
+	}
+	return (-1);
 }

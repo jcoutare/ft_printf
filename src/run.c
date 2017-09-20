@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/20 15:13:24 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/20 17:15:58 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	la_resolvance(t_struct *data)
 		{
 			i += flag_prec(data, (data->flags + i + 1));
 		}
-		printf("data->flags[%c]\n", c = data->flags[i]);
+		c = data->flags[i];
 		if (data->flag_tab[c] != 0)
 			data->flag_tab[c](data);
 		i++;
@@ -37,6 +37,10 @@ void	la_resolvance(t_struct *data)
 
 char	*get_flags(char *str, t_struct *data)
 {
+//	int validflags;
+
+//	if ((validflags = strcheck(str, "%-+ #hljzsSpdDioOuUxXcC.") != -1))
+		//	return (str + validflags + 1);
 	data->flags = ft_strsub(str, 0, strichr_str(str, "sSpdDioOuUxXcC") + 1);
 	if (str[0] == '%' && str[1] == '%')
 	{
@@ -44,8 +48,13 @@ char	*get_flags(char *str, t_struct *data)
 		str += 2;
 	}
 	else
+	{
 		la_resolvance(data);
-	str += strichr_str(str, "sSpdDioOuUxXcC") + 1;
+		if (strichr_str(str, "sSpdDioOuUxXcC") + 1 == 1)
+			str += 2;
+		else
+			str += strichr_str(str, "sSpdDioOuUxXcC") + 1;
+	}
 	return (str);
 }
 

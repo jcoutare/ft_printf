@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 12:19:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/20 14:50:56 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/20 17:11:31 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LOL_H
@@ -49,6 +49,7 @@ typedef struct s_struct
 	void (*flag_tab[127])(struct s_struct *data);
 }				t_struct;
 
+int		strcheck(char *str, char *check);
 int		ft_printf(char *str,...);
 void	make_zero(t_struct *data);
 void	make_moins(t_struct *data);
