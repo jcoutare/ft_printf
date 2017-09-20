@@ -6,11 +6,12 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:38:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/19 15:55:36 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/20 15:13:28 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lol.h"
+
 
 int 	flag_larg(t_struct *data, char *flags)
 {
@@ -34,6 +35,10 @@ int		flag_prec(t_struct *data, char *flags)
 	return (i);
 }
 
+void	flag_pourcent(t_struct *data)
+{
+	data->resolved = ft_strjoin(data->resolved, "%");
+}
 void	flag_diese(t_struct *data)
 {
 	data->f_sharp = 1;

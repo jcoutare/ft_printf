@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 12:19:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/19 16:31:41 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/20 14:50:56 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LOL_H
@@ -66,6 +66,7 @@ int     strichr_str(char *str, char *chr);
 char	*ft_itoa_base(unsigned long long nbr, unsigned int base);
 t_struct	*fill_struct(t_struct *data, va_list *ap);
 void	larg(t_struct *data);
+void	flag_pourcent(t_struct *data);
 void	flag_zero(t_struct *data);
 int		flag_larg(t_struct *data, char *flags);
 void    flag_moins(t_struct *data);

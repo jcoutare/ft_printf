@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:44:30 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/18 16:32:52 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/20 15:02:16 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_struct	*fill_struct(t_struct *data, va_list *ap)
 	data->modif_hh = 0;
 	data->modif_j = 0;
 	data->modif_z = 0;
+	data->flag_tab['%'] = &flag_pourcent;
 	data->flag_tab['0'] = &flag_zero;
 	data->flag_tab['d'] = &flag_d_signed;
 	data->flag_tab['i'] = &flag_d_signed;

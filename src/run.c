@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/19 16:32:12 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/20 15:13:24 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	la_resolvance(t_struct *data)
 	int c;
 
 	i = 1;
-	printf("[%s]\n", data->flags);
 	while (data->flags[i])
 	{
 		if (data->flags[i] <= '9' && data->flags[i] >= '1')
@@ -29,8 +28,9 @@ void	la_resolvance(t_struct *data)
 		{
 			i += flag_prec(data, (data->flags + i + 1));
 		}
-		c = data->flags[i];
-		data->flag_tab[c](data);
+		printf("data->flags[%c]\n", c = data->flags[i]);
+		if (data->flag_tab[c] != 0)
+			data->flag_tab[c](data);
 		i++;
 	}
 }
@@ -38,7 +38,13 @@ void	la_resolvance(t_struct *data)
 char	*get_flags(char *str, t_struct *data)
 {
 	data->flags = ft_strsub(str, 0, strichr_str(str, "sSpdDioOuUxXcC") + 1);
-	la_resolvance(data);
+	if (str[0] == '%' && str[1] == '%')
+	{
+		flag_pourcent(data);
+		str += 2;
+	}
+	else
+		la_resolvance(data);
 	str += strichr_str(str, "sSpdDioOuUxXcC") + 1;
 	return (str);
 }
