@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/20 17:22:03 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/26 17:03:58 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	la_resolvance(t_struct *data)
 	int i;
 	int c;
 
-	i = 1;
+	i = 0;
 	while (data->flags[i])
 	{
 		if (data->flags[i] <= '9' && data->flags[i] >= '1')
@@ -39,13 +39,11 @@ char	*get_flags(char *str, t_struct *data)
 {
 	int validflags;
 
-//	printf("str = %s\n", str);
-	data->flags = ft_strsub(str, 0, strichr_str(str, "sSpdDioOuUxXcC") + 1);
+//	printf("str >%s\n", str);
+	data->flags = ft_strsub(str, 1, strichr_str(str + 1, "%sSpdDioOuUxXcC") + 1);
+//	printf("data->flags = %s\n", data->flags);
 	if ((validflags = strcheck(data->flags, "%-+ #hljzsSpdDioOuUxXcC.") != -1))
-	{
-		//	printf("Val_strcheck= %d\n", validflags);
 		return (str + validflags + 1);
-	}
 	if (str[0] == '%' && str[1] == '%')
 	{
 		flag_pourcent(data);
@@ -54,10 +52,7 @@ char	*get_flags(char *str, t_struct *data)
 	else
 	{
 		la_resolvance(data);
-		if (strichr_str(str, "sSpdDioOuUxXcC") + 1 == 1)
-			str += 2;
-		else
-			str += strichr_str(str, "sSpdDioOuUxXcC") + 1;
+		str += strichr_str(str + 1, "%sSpdDioOuUxXcC") + 2;
 	}
 	return (str);
 }
@@ -88,5 +83,5 @@ int		ft_printf(char *str,...)
 	decoupe(copy, data);
 	ft_putstr(data->fstring);
 	va_end(ap);
-	return (ft_strlen(data->fstring));
+	return (ft_strlen(data->fstring) - data->tamer);
 }

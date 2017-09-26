@@ -6,15 +6,18 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 12:19:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/20 17:11:31 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/26 17:55:56 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LOL_H
 # define LOL_H
+# define ICI printf("ici\n")
+# define LA printf("la\n")
 # include "../libft/libft.h"
 # include <stdarg.h>
 # include <stdio.h> // < jean michel l'arnaque
 # include <sys/types.h>
+
 
 typedef union mon_union
 {
@@ -25,6 +28,8 @@ typedef union mon_union
 
 typedef struct s_struct
 {
+	int precfail;
+	int tamer;
 	int modif;
 	int modif_l;
 	int modif_ll;
@@ -49,6 +54,9 @@ typedef struct s_struct
 	void (*flag_tab[127])(struct s_struct *data);
 }				t_struct;
 
+void	prec_s(t_struct *data);
+void	flag_O_unsigned(t_struct *data);
+void	flag_D_signed(t_struct *data);
 int		strcheck(char *str, char *check);
 int		ft_printf(char *str,...);
 void	make_zero(t_struct *data);
@@ -61,6 +69,7 @@ void	modif_z(t_struct *data);
 void    make_sharp(t_struct *data);
 int     flag_prec(t_struct *data, char *flags);
 void    larg_moins(t_struct *data);
+char    *ft_strnfjoin(char const *s1, char const *s2);
 char    *ft_strnjoin(char const *s1, char const *s2, int n);
 int     strichr(char *str, char c);
 int     strichr_str(char *str, char *chr);

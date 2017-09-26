@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/15 10:20:56 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/19 16:37:56 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/26 15:32:09 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,10 @@ void	make_zero(t_struct *data)
 	if (data->larg > 0)
 	{
 		str = make_zerobis(data);
+		if (data->f_sharp == 1)
+		{
+			str = ft_strnfjoin("0X", str + 2);
+		}
 		if (!(data->resolved = ft_strjoin(str, data->resolved)))
 			return ;
 	}
