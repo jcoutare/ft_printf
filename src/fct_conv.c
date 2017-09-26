@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/26 18:09:29 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/26 18:48:45 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	le_the(t_struct *data)
 	{
 		if (data->f_plus == 1)
 		{
-		 	if ((long long)data->arg > 0)
+		 	if ((long long)data->arg >= 0)
 				data->resolved[0] = '+';
 		}
 		else if (data->f_space == 1)
@@ -59,12 +59,13 @@ void	flag_d_signed(t_struct *data)
 		prec(data);
 		data->f_zero = 0;
 	}
-	if (data->f_zero == 1 && (long long)data->arg < 0)
+	if (data->f_zero == 1 && (long long)data->arg < 0 && data->prec < 0)
 	{
 		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg * -1));
 		data->larg -= 2;
 	}
-	data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg));
+	else
+		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg));
 	le_cafe(data);
 }
 
@@ -121,8 +122,7 @@ void	flag_o_unsigned(t_struct *data)
 	data->conv = 1;
 	if (data->modif != 1)
 		data->arg = va_arg(*data->ap, unsigned int);
-	if (data->f_sharp == 1 && data->arg != 0 &&
-		(data->f_zero == 0 || data->f_moins == 1))
+	if (data->f_sharp == 1)
 		data->resolved = ft_strjoin(data->resolved, "0");
 	if (data->prec > 0)
 	{

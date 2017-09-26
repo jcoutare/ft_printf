@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 17:21:50 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/26 17:03:39 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/26 18:38:10 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	prec(t_struct *data)
 		data->resolved = ft_strjoin(data->resolved, str);
 		free(str);
 	}
-	data->prec = 0;
+	data->prec = -1;
 }
 
 void	prec_s(t_struct *data)
