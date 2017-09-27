@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:38:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/26 18:09:06 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/27 15:10:19 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ int		flag_prec(t_struct *data, char *flags)
 	if (flags[0] > '9' || flags[0] <= '0')
 	{
 		data->precfail = 1;
-		if (flags[0] == '0')
-			i++;
 		return (i);
 	}
 	data->prec = ft_atoi(flags);
@@ -50,6 +48,7 @@ void	flag_diese(t_struct *data)
 void	flag_moins(t_struct *data)
 {
 	data->f_moins = 1;
+	data->f_zero = 0;
 }
 
 void	flag_plus(t_struct *data)
@@ -64,5 +63,6 @@ void	flag_space(t_struct *data)
 
 void	flag_zero(t_struct *data)
 {
-	data->f_zero = 1;
+	if (data->f_moins == 0 && data->precfail != 1)
+		data->f_zero = 1;
 }

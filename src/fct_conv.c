@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/26 18:48:45 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/27 15:27:26 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,17 @@ void	flag_d_signed(t_struct *data)
 	if (data->modif != 1)
 		data->arg = va_arg(*data->ap, int);
 	le_the(data);
-	if (data->prec > 0)
+	if (data->prec >= 0)
 	{
 		prec(data);
 		data->f_zero = 0;
 	}
-	if (data->f_zero == 1 && (long long)data->arg < 0 && data->prec < 0)
+	if (data->f_zero == 1 && (long long)data->arg < 0 && data->larg > 0)
 	{
 		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg * -1));
 		data->larg -= 2;
 	}
-	else
+	else if (data->precfail != 1 || data->arg != 0)
 		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg));
 	le_cafe(data);
 }
@@ -85,7 +85,7 @@ void	flag_D_signed(t_struct *data)
 		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg * -1));
 		data->larg -= 2;
 	}
-	else
+	else if (data->precfail != 1 || data->arg != 0)
 	{
 		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg));
 	}
@@ -95,9 +95,12 @@ void	flag_D_signed(t_struct *data)
 
 void	flag_d_unsigned(t_struct *data)
 {
+
 	data->conv = 1;
 	if (data->modif != 1)
 		data->arg = va_arg(*data->ap, unsigned int);
+	data->f_plus = 0;
+	data->f_space = 0;
 	le_the(data);
 	if (data->prec > 0)
 	{
@@ -109,7 +112,7 @@ void	flag_d_unsigned(t_struct *data)
 		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg * -1));
 		data->larg -= 2;
 	}
-	else
+	else if (data->precfail != 1 || data->arg != 0)
 		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg));
 	le_cafe(data);
 }
@@ -129,7 +132,7 @@ void	flag_o_unsigned(t_struct *data)
 		prec(data);
 		data->f_zero = 0;
 	}
-	if (data->precfail == 0)
+	if (data->precfail != 1 || data->arg != 0)
 		data->resolved = ft_strjoin(data->resolved, ft_itoa_base(data->arg, 8));
 	le_cafe(data);
 	while (data->resolved[i])
@@ -155,7 +158,7 @@ void	flag_hex_unsigned(t_struct *data)
 		prec(data);
 		data->f_zero = 0;
 	}
-	if (data->precfail == 0)
+	if (data->precfail != 1 || data->arg != 0)
 		data->resolved = ft_strjoin(data->resolved, ft_itoa_base(data->arg, 16));
 	le_cafe(data);
 	while (data->resolved[i])
@@ -178,7 +181,7 @@ void	flag_hex_unsigned_maj(t_struct *data)
 		prec(data);
 		data->f_zero = 0;
 	}
-	if (data->precfail == 0)
+	if (data->precfail != 1 || data->arg != 0)
 		data->resolved = ft_strjoin(data->resolved, ft_itoa_base(data->arg, 16));
 	le_cafe(data);
 }
