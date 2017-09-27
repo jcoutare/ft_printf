@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/26 17:03:58 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/27 16:27:32 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ void	la_resolvance(t_struct *data)
 		{
 			i += flag_prec(data, (data->flags + i + 1));
 		}
+		if (data->flags[i] == 'h' && data->flags[i + 1] == 'h')
+			i++;
+		if (data->flags[i] == 'l' && data->flags[i + 1] == 'l')
+			i++;
 		c = data->flags[i];
 		if (data->flag_tab[c] != 0)
 			data->flag_tab[c](data);

@@ -4,21 +4,24 @@
 int		strcheck(char *str, char *check);
 int       main(void)
 {
-	int i;
+	unsigned long i;
 
-	i = 42;
+	i = -42;
 
-	ft_printf("|%hd|\n", 32768);
-	printf("|%hd|\n", 32768);
-	printf("___________\n");
-	ft_printf("|%hhd|\n", 128);
-	printf("|%hhd|\n", 128);
-	printf("___________\n");
-	ft_printf("|%hhd|\n", -129);
-	printf("|%hhd|\n", -129);
-	printf("___________\n");
 	ft_printf("|%lld|\n", -9223372036854775808);
 	printf("|%lld|\n", -9223372036854775808);
+	printf("___________\n");
+	ft_printf("|%jd|\n", -9223372036854775808);
+	printf("|%jd|\n", -9223372036854775808);
+	printf("___________\n");
+	ft_printf("|%lu|\n",i);
+	printf("|%lu|\n", i);
+	printf("___________\n");
+	ft_printf("|%hU|\n", 4294967296);
+	printf("|%hU|\n",4294967296);
+	printf("___________\n");
+	ft_printf("|%U|\n", 4294967296);
+	printf("|%U|\n", 4294967296);
 /*	printf("___________\n");
 	ft_printf("@moulitest: |%5.x %5.0x|\n", 0, 0);
 	printf("@moulitest: |%5.x %5.0x|\n", 0, 0);
