@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/15 12:19:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/26 17:55:56 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/28 13:57:44 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LOL_H
@@ -54,6 +54,7 @@ typedef struct s_struct
 	void (*flag_tab[127])(struct s_struct *data);
 }				t_struct;
 
+char	*ft_itoa_ull(unsigned long long n);
 void	prec_s(t_struct *data);
 void	flag_O_unsigned(t_struct *data);
 void	flag_D_signed(t_struct *data);
@@ -86,6 +87,7 @@ void	flag_space(t_struct *data);
 void	flag_diese(t_struct *data);
 void    flag_d_signed(t_struct *data);
 void    flag_d_unsigned(t_struct *data);
+void    flag_U_unsigned(t_struct *data);
 void    flag_o_unsigned(t_struct *data);
 void    flag_o_unsigned(t_struct *data);
 void    flag_hex_unsigned(t_struct *data);

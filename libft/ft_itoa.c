@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 12:17:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/21 15:32:22 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/28 12:04:03 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ char			*ft_itoa(long long n)
 {
 	char						*str;
 	int							lgt;
-	unsigned long long			nb;
+	unsigned long 			nb;
 	int							neg;
 
 	lgt = 1;
 	neg = 1;
 	str = NULL;
-	if (n == -2147483648)
+	if (n < -9223372036854775807)
 	{
-		str = ft_strdup("-2147483648");
+		str = ft_strdup("-9223372036854775808");
 		return (str);
 	}
 	if (n < 0 && neg++)

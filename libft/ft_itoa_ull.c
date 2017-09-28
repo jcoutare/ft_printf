@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_itoa_ull.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/19 12:17:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/21 15:32:22 by jcoutare         ###   ########.fr       */
+/*   Created: 2017/09/28 11:59:06 by jcoutare          #+#    #+#             */
+/*   Updated: 2017/09/28 12:03:02 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-static char		*nbtostr(char *str, int lgt, long long n, int neg)
+static char		*nbtostr(char *str, int lgt, unsigned long long n, int neg)
 {
 	if ((str = malloc(sizeof(char) * (lgt + 1))) == NULL)
 		return (NULL);
@@ -29,26 +29,16 @@ static char		*nbtostr(char *str, int lgt, long long n, int neg)
 	return (str);
 }
 
-char			*ft_itoa(long long n)
+char			*ft_itoa_ull(unsigned long long n)
 {
 	char						*str;
 	int							lgt;
-	unsigned long long			nb;
+	unsigned long 			nb;
 	int							neg;
 
 	lgt = 1;
 	neg = 1;
 	str = NULL;
-	if (n == -2147483648)
-	{
-		str = ft_strdup("-2147483648");
-		return (str);
-	}
-	if (n < 0 && neg++)
-	{
-		n *= -1;
-		lgt++;
-	}
 	nb = n;
 	while (nb >= 10)
 	{

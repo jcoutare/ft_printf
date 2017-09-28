@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:44:30 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/27 14:12:26 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/28 14:56:18 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@ t_struct	*fill_struct(t_struct *data, va_list *ap)
 	data->arg = 0;
 	data->sarg = 0;
 	data->ap = ap;
-	data->fstring = malloc(sizeof(char *));
+	if (!(data->fstring = malloc(sizeof(char *))))
+		return (NULL);
 	data->fstring[0] = 0;
 	data->f_sharp = 0;
 	data->f_zero = 0;
 	data->f_plus = 0;
 	data->f_moins = 0;
 	data->f_space = 0;
-	data->resolved = malloc(sizeof(char *));
+	if (!(data->resolved = malloc(sizeof(char *))))
+		return (NULL);
 	data->resolved[0] = 0;
 	data->flags = NULL;
 	data->conv = 0;
@@ -36,12 +38,6 @@ t_struct	*fill_struct(t_struct *data, va_list *ap)
 	data->precfail = 0;
 	data->prec = -1;
 	data->modif = 0;
-	data->modif_l = 0;
-	data->modif_ll = 0;
-	data->modif_h = 0;
-	data->modif_hh = 0;
-	data->modif_j = 0;
-	data->modif_z = 0;
 	data->flag_tab['%'] = &flag_pourcent;
 	data->flag_tab['0'] = &flag_zero;
 	data->flag_tab['d'] = &flag_d_signed;
@@ -50,7 +46,7 @@ t_struct	*fill_struct(t_struct *data, va_list *ap)
 	data->flag_tab['o'] = &flag_o_unsigned;
 	data->flag_tab['O'] = &flag_o_unsigned;
 	data->flag_tab['u'] = &flag_d_unsigned;
-	data->flag_tab['U'] = &flag_d_unsigned;
+	data->flag_tab['U'] = &flag_U_unsigned;
 	data->flag_tab['x'] = &flag_hex_unsigned;
 	data->flag_tab['X'] = &flag_hex_unsigned_maj;
 	data->flag_tab['c'] = &flag_c;

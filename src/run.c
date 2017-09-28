@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/27 16:27:32 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/28 15:01:56 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,7 @@ char	*get_flags(char *str, t_struct *data)
 {
 	int validflags;
 
-//	printf("str >%s\n", str);
 	data->flags = ft_strsub(str, 1, strichr_str(str + 1, "%sSpdDioOuUxXcC") + 1);
-//	printf("data->flags = %s\n", data->flags);
 	if ((validflags = strcheck(data->flags, "%-+ #hljzsSpdDioOuUxXcC.") != -1))
 		return (str + validflags + 1);
 	if (str[0] == '%' && str[1] == '%')
@@ -58,6 +56,7 @@ char	*get_flags(char *str, t_struct *data)
 		la_resolvance(data);
 		str += strichr_str(str + 1, "%sSpdDioOuUxXcC") + 2;
 	}
+	free(data->flags);
 	return (str);
 }
 
@@ -78,14 +77,21 @@ void	decoupe(char *str, t_struct *data)
 int		ft_printf(char *str,...)
 {
 	va_list ap;
-	char *copy = ft_strdup(str);
+	char *copy;
 	t_struct *data;
+	int ret;
 
 	data = NULL;
+	copy = ft_strdup(str);
 	va_start(ap, str);
 	data = fill_struct(data, &ap);
 	decoupe(copy, data);
 	ft_putstr(data->fstring);
 	va_end(ap);
-	return (ft_strlen(data->fstring) - data->tamer);
+	ret = (int)ft_strlen(data->fstring) - data->tamer;
+	free(copy);
+	free(data->fstring);
+	free(data->resolved);
+	free(data);
+	return (ret);
 }

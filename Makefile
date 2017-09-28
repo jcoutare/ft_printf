@@ -6,7 +6,7 @@
 #    By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/16 11:07:45 by jcoutare          #+#    #+#              #
-#    Updated: 2017/09/20 14:24:55 by jcoutare         ###   ########.fr        #
+#    Updated: 2017/09/28 12:07:27 by jcoutare         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,7 +24,8 @@ SRC_NAME = 	fct_conv.c \
 
 SRC_LIB_PATH = libft
 
-SRC_LIB_NAME =	ft_putstr.c \
+SRC_LIB_NAME =	ft_itoa_ull.c \
+			ft_putstr.c \
 			ft_strcmp.c \
 			ft_strdup.c \
 			ft_strlen.c \

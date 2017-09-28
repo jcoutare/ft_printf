@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/27 16:31:08 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/28 15:35:01 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ void	le_cafe(t_struct *data)
 
 void	flag_d_signed(t_struct *data)
 {
+	char *arg;
+
+	arg = NULL;
 	data->conv = 1;
 	if (data->modif != 1)
 		data->arg = va_arg(*data->ap, int);
@@ -61,16 +64,25 @@ void	flag_d_signed(t_struct *data)
 	}
 	if (data->f_zero == 1 && (long long)data->arg < 0 && data->larg > 0)
 	{
-		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg * -1));
+		arg = ft_itoa(data->arg * -1);
+		data->resolved = ft_strjoin(data->resolved, arg);
 		data->larg -= 2;
 	}
 	else if (data->precfail != 1 || data->arg != 0)
-		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg));
+	{
+		arg = ft_itoa(data->arg);
+		data->resolved = ft_strjoin(data->resolved, arg);
+	}
+	if (arg)
+		free(arg);
 	le_cafe(data);
 }
 
 void	flag_D_signed(t_struct *data)
 {
+	char *arg;
+
+	arg = NULL;
 	data->conv = 1;
 	if (data->modif != 1)
 		data->arg = va_arg(*data->ap, long long int);
@@ -82,20 +94,26 @@ void	flag_D_signed(t_struct *data)
 	}
 	if (data->f_zero == 1 && (long long)data->arg < 0)
 	{
-		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg * -1));
+		arg = ft_itoa(data->arg * -1);
+		data->resolved = ft_strjoin(data->resolved, arg);
 		data->larg -= 2;
 	}
 	else if (data->precfail != 1 || data->arg != 0)
 	{
-		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg));
+		arg = ft_itoa(data->arg);
+		data->resolved = ft_strjoin(data->resolved, arg);
 	}
+	if (arg)
+		free(arg);
 	le_cafe(data);
 }
 
 
 void	flag_d_unsigned(t_struct *data)
 {
+	char *arg;
 
+	arg = NULL;
 	data->conv = 1;
 	if (data->modif != 1)
 		data->arg = va_arg(*data->ap, unsigned int);
@@ -107,18 +125,38 @@ void	flag_d_unsigned(t_struct *data)
 		prec(data);
 		data->f_zero = 0;
 	}
-	if (data->f_zero == 1 && (long long)data->arg < 0)
+	arg = ft_itoa_ull(data->arg);
+	if (data->precfail != 1 || data->arg != 0)
+		data->resolved = ft_strjoin(data->resolved, arg);
+	free(arg);
+	le_cafe(data);
+}
+
+void	flag_U_unsigned(t_struct *data)
+{
+	char *arg;
+
+	data->conv = 1;
+	if (data->modif != 1)
+		data->arg = va_arg(*data->ap, unsigned long int);
+	data->f_plus = 0;
+	data->f_space = 0;
+	le_the(data);
+	if (data->prec > 0)
 	{
-		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg * -1));
-		data->larg -= 2;
+		prec(data);
+		data->f_zero = 0;
 	}
-	else if (data->precfail != 1 || data->arg != 0)
-		data->resolved = ft_strjoin(data->resolved, ft_itoa(data->arg));
+	arg = ft_itoa_ull(data->arg);
+	if (data->precfail != 1 || data->arg != 0)
+		data->resolved = ft_strjoin(data->resolved, arg);
+	free(arg);
 	le_cafe(data);
 }
 
 void	flag_o_unsigned(t_struct *data)
 {
+	char *arg;
 	int i;
 
 	i = 0;
@@ -132,8 +170,10 @@ void	flag_o_unsigned(t_struct *data)
 		prec(data);
 		data->f_zero = 0;
 	}
+	arg = ft_itoa_base(data->arg, 8);
 	if (data->precfail != 1 || data->arg != 0)
-		data->resolved = ft_strjoin(data->resolved, ft_itoa_base(data->arg, 8));
+		data->resolved = ft_strjoin(data->resolved, arg);
+	free(arg);
 	le_cafe(data);
 	while (data->resolved[i])
 	{
@@ -144,6 +184,7 @@ void	flag_o_unsigned(t_struct *data)
 
 void	flag_hex_unsigned(t_struct *data)
 {
+	char *arg;
 	int i;
 
 	i = 0;
@@ -158,8 +199,10 @@ void	flag_hex_unsigned(t_struct *data)
 		prec(data);
 		data->f_zero = 0;
 	}
+	arg = ft_itoa_base(data->arg, 16);
 	if (data->precfail != 1 || data->arg != 0)
-		data->resolved = ft_strjoin(data->resolved, ft_itoa_base(data->arg, 16));
+		data->resolved = ft_strjoin(data->resolved, arg);
+	free(arg);
 	le_cafe(data);
 	while (data->resolved[i])
 	{
@@ -170,6 +213,7 @@ void	flag_hex_unsigned(t_struct *data)
 
 void	flag_hex_unsigned_maj(t_struct *data)
 {
+	char *arg;
 	data->conv = 1;
 	if (data->modif != 1)
 		data->arg = va_arg(*data->ap, unsigned int);
@@ -181,13 +225,16 @@ void	flag_hex_unsigned_maj(t_struct *data)
 		prec(data);
 		data->f_zero = 0;
 	}
+	arg = ft_itoa_base(data->arg, 16);
 	if (data->precfail != 1 || data->arg != 0)
-		data->resolved = ft_strjoin(data->resolved, ft_itoa_base(data->arg, 16));
+		data->resolved = ft_strjoin(data->resolved, arg);
+	free(arg);
 	le_cafe(data);
 }
 
 void	flag_p(t_struct *data)
 {
+	char *arg;
 	int i;
 
 	i = 0;
@@ -200,7 +247,9 @@ void	flag_p(t_struct *data)
 		prec(data);
 		data->f_zero = 0;
 	}
-	data->resolved = ft_strjoin(data->resolved, ft_itoa_base(data->arg, 16));
+	arg = ft_itoa_base(data->arg, 16);
+	data->resolved = ft_strjoin(data->resolved, arg);
+	free(arg);
 	le_cafe(data);
 	while (data->resolved[i])
 	{

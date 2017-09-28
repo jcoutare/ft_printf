@@ -6,7 +6,7 @@
 #    By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/10 14:58:59 by jcoutare          #+#    #+#              #
-#    Updated: 2017/08/16 11:29:35 by jcoutare         ###   ########.fr        #
+#    Updated: 2017/09/28 11:59:41 by jcoutare         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -18,7 +18,8 @@ INCLUDES += -I libft.h
 
 CFLAGS += -Wall -Wextra -Werror $(INCLUDES)
 
-SRC =	ft_putstr.c \
+SRC =	ft_itoa_ull.c \
+		ft_putstr.c \
 		ft_strcmp.c \
 		ft_strdup.c \
 		ft_strlen.c \

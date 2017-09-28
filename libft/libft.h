@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/10 15:04:52 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/18 16:46:30 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/28 12:00:18 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ char					*ft_strjoin(char const *s1, char const *s2);
 char					*ft_strtrim(char const *s);
 char					**ft_strsplit(char const *s, char c);
 char					*ft_itoa(long long n);
+char					*ft_itoa_ull(unsigned long long n);
 void					ft_putendl_fd(char const *s, int fd);
 void					ft_putchar_fd(char c, int fd);
 void					ft_putstr_fd(char const *s, int fd);
