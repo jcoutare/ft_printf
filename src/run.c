@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/28 15:01:56 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/28 16:42:46 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,14 @@ char	*get_flags(char *str, t_struct *data)
 {
 	int validflags;
 
-	data->flags = ft_strsub(str, 1, strichr_str(str + 1, "%sSpdDioOuUxXcC") + 1);
+	data->flags = ft_strsub(str, 1,
+							strichr_str(str + 1, "%sSpdDioOuUxXcC") + 1);
 	if ((validflags = strcheck(data->flags, "%-+ #hljzsSpdDioOuUxXcC.") != -1))
+	{
+		if (data->flags)
+			free(data->flags);
 		return (str + validflags + 1);
+	}
 	if (str[0] == '%' && str[1] == '%')
 	{
 		flag_pourcent(data);
@@ -62,7 +67,9 @@ char	*get_flags(char *str, t_struct *data)
 
 void	decoupe(char *str, t_struct *data)
 {
-	int  i = 0;
+	int	i;
+
+	i = 0;
 	while (strichr(str, '%') != -1)
 	{
 		data->fstring = ft_strnjoin(data->fstring, str, strichr(str, '%'));
@@ -74,12 +81,12 @@ void	decoupe(char *str, t_struct *data)
 	data->fstring = ft_strjoin(data->fstring, str);
 }
 
-int		ft_printf(char *str,...)
+int		ft_printf(char *str, ...)
 {
-	va_list ap;
-	char *copy;
-	t_struct *data;
-	int ret;
+	va_list		ap;
+	char		*copy;
+	t_struct	*data;
+	int			ret;
 
 	data = NULL;
 	copy = ft_strdup(str);

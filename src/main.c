@@ -8,31 +8,20 @@ int       main(void)
 
 	i = 4294967296;
 
-	ft_printf("|%hU|\n", i);
-	printf("|%hU|\n", i);
-	printf("___________\n");
-	ft_printf("|%hx|\n", 4294967296);
-	printf("|%hx|\n", 4294967296);
-	printf("___________\n");
-	ft_printf("|%u|\n", -1);
-	printf("|%u|\n", -1);
-
-	printf("___________\n");
-	ft_printf("|%lu|\n",i);
-	printf("|%lu|\n", i);
-	printf("___________\n");
-	ft_printf("|%hhX|\n", 4294967296);
-	printf("|%hhx|\n",4294967296);
-	printf("___________\n");
-	ft_printf("@moulitest: |%5.x %5.0x|\n", 0, 0);
-	printf("@moulitest: |%5.x %5.0x|\n", 0, 0);
-	printf("___________\n");
-	ft_printf("@moulitest: |%5.o %5.0o|\n", 0, 0);
-	printf("@moulitest: |%5.o %5.0o|\n", 0, 0);
-	printf("___________\n");
-	ft_printf("@moulitest: |%5.d %5.0d|\n", 0, 0);
-	printf("@moulitest: |%5.d %5.0d|\n", 0, 0);
-	printf("Val_mprintf = %d\n", ft_printf("@moulitest: %#.o %#.0o", 0, 0));
-	while (1);
+	ft_printf("\n", 3);
+	ft_printf("%%\\n");
+	ft_printf("%d\\n", 42);
+	ft_printf("%d%d\\n", 42, 41);
+	ft_printf("%d%d%d\\n", 42, 43, 44);
+	ft_printf("%ld\\n", 2147483647);
+	ft_printf("%lld\\n", 9223372036854775807);
+	ft_printf("%x\\n", 505);
+	ft_printf("%X\\n", 505);
+	ft_printf("%p\\n", &ft_printf);
+	ft_printf("%20.15d\\n", 54321);
+	ft_printf("%-10d\\n", 3);
+	ft_printf("% d\\n", 3);
+	ft_printf("%+d\\n", 3);
+	ft_printf("%\\n");
 	return (0);
 }

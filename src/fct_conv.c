@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/28 15:35:01 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/28 17:05:28 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,6 +214,7 @@ void	flag_hex_unsigned(t_struct *data)
 void	flag_hex_unsigned_maj(t_struct *data)
 {
 	char *arg;
+
 	data->conv = 1;
 	if (data->modif != 1)
 		data->arg = va_arg(*data->ap, unsigned int);
@@ -274,7 +275,7 @@ void	flag_s(t_struct *data)
 void	flag_c(t_struct *data)
 {
 	data->resolved[0] = '\0';
-	if (data->modif_l == 0)
+	if (data->modif != 1)
 		data->arg = (unsigned char)va_arg(*data->ap, int);
 	if (data->arg == 0)
 	{

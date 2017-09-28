@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/15 10:20:56 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/27 14:10:10 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/28 16:03:55 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	make_moins(t_struct *data)
 		str = ft_strnew(data->larg);
 		ft_memset(str, ' ', data->larg);
 		data->resolved = ft_strjoin(data->resolved, str);
+		free(str);
 	}
 	data->larg = 0;
 }
@@ -79,8 +80,10 @@ char	*make_zerobis(t_struct *data)
 
 void	make_zero(t_struct *data)
 {
+	char *tmp;
 	char *str;
 
+	tmp = data->resolved;
 	data->larg = data->larg - (int)ft_strlen(data->resolved);
 	if (data->larg > 0)
 	{
@@ -89,7 +92,8 @@ void	make_zero(t_struct *data)
 		{
 			str = ft_strnfjoin("0X", str + 2);
 		}
-		if (!(data->resolved = ft_strjoin(str, data->resolved)))
+		if (!(data->resolved = ft_strjoin(str, tmp)))
 			return ;
+		free(tmp);
 	}
 }

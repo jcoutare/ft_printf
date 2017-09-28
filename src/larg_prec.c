@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 17:21:50 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/28 15:00:46 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/28 15:58:24 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,31 @@
 
 void	larg(t_struct *data)
 {
+	char *tmp;
 	char *str;
 
+	tmp = data->resolved;
 	str = NULL;
 	data->larg = data->larg - (int)ft_strlen(data->resolved) + data->tamer;
 	if (data->larg > 0)
 	{
 		str = ft_strnew(data->larg);
-//		printf("data->larg = %d\n", data->larg);
-		str = ft_memset(str, ' ', data->larg); //-1 du scotch
-		data->resolved = ft_strjoin(str, data->resolved);
+		str = ft_memset(str, ' ', data->larg);
+		data->resolved = ft_strjoin(str, tmp);
+		free(tmp);
 	}
 	data->larg = 0;
 }
 
 void	prec(t_struct *data)
 {
+	char *tmp;
 	char *str;
 
-	data->prec = data->prec - ft_strlen(ft_itoa(data->arg));
-if ((long long)data->arg < 0)
+	tmp = ft_itoa(data->arg);
+	data->prec = data->prec - ft_strlen(tmp);
+	free(tmp);
+	if ((long long)data->arg < 0)
 		data->prec++;
 	if (data->prec > 0)
 	{

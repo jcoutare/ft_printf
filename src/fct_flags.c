@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:38:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/27 15:10:19 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/28 15:43:50 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,21 @@
 
 int 	flag_larg(t_struct *data, char *flags)
 {
+	char *truc;
 	int i;
 
 	i = 0;
 	data->larg = ft_atoi(flags);
-	i += (int)ft_strlen(ft_itoa(data->larg));
-//	printf("larg = %d\n", data->larg);
+	truc = ft_itoa(data->larg);
+	i += (int)ft_strlen(truc);
+	free(truc);
 	return (i);
 }
 
 int		flag_prec(t_struct *data, char *flags)
 {
 	int i;
+	char *truc;
 
 	i = 1;
 	if (flags[0] > '9' || flags[0] <= '0')
@@ -35,8 +38,9 @@ int		flag_prec(t_struct *data, char *flags)
 		return (i);
 	}
 	data->prec = ft_atoi(flags);
-	i += (int)ft_strlen(ft_itoa(data->prec));
-//	printf("prec = %d\n", data->prec);
+	truc = ft_itoa(data->prec);
+	i += (int)ft_strlen(truc);
+	free(truc);
 	return (i);
 }
 

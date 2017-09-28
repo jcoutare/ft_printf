@@ -6,12 +6,11 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:44:30 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/28 14:56:18 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/28 16:50:40 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/lol.h"
-
 t_struct	*fill_struct(t_struct *data, va_list *ap)
 {
 	if (!(data = malloc(sizeof(t_struct))))
