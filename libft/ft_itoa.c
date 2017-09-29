@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/19 12:17:43 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/28 12:04:03 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/29 15:13:42 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char			*ft_itoa(long long n)
 {
 	char						*str;
 	int							lgt;
-	unsigned long 			nb;
+	unsigned long				nb;
 	int							neg;
 
 	lgt = 1;

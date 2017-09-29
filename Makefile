@@ -6,13 +6,19 @@
 #    By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/16 11:07:45 by jcoutare          #+#    #+#              #
-#    Updated: 2017/09/28 12:07:27 by jcoutare         ###   ########.fr        #
+#    Updated: 2017/09/29 15:50:34 by jcoutare         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 SRC_PATH = src
 
-SRC_NAME = 	fct_conv.c \
+SRC_NAME = 	fct_conv_char.c \
+			fct_conv_number.c \
+			fill_resolved.c \
+			make_zero.c \
+			fct_flags2.c \
+			modif_tools.c \
+			fct_conv.c \
 			fct_flags.c \
 			fct_modif.c \
 			itoa_base.c \
@@ -20,7 +26,7 @@ SRC_NAME = 	fct_conv.c \
 			make_flags.c \
 			run.c \
 			run_tools.c \
-			tab.c
+			tab.c \
 
 SRC_LIB_PATH = libft
 
@@ -125,11 +131,11 @@ $(NAME): $(OBJ) $(OBJ_LIB)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 		@mkdir $(OBJ_PATH) 2> /dev/null || true
-		$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+		@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 $(OBJ_LIB_PATH)/%.o: $(SRC_LIB_PATH)/%.c
 		@mkdir $(OBJ_LIB_PATH) 2> /dev/null || true
-		$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+		@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 clean:
 		rm -fv $(OBJ)
 		@rmdir $(OBJ_PATH) 2> /dev/null || true

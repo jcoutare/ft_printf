@@ -6,11 +6,11 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/15 14:11:24 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/28 17:06:01 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/29 15:22:23 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lol.h"
+#include "../includes/ft_printf.h"
 
 void	modif_l(t_struct *data)
 {

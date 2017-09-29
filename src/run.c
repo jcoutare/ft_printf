@@ -6,11 +6,11 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/28 16:42:46 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/29 15:54:10 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lol.h"
+#include "../includes/ft_printf.h"
 
 void	la_resolvance(t_struct *data)
 {
@@ -88,6 +88,8 @@ int		ft_printf(char *str, ...)
 	t_struct	*data;
 	int			ret;
 
+	if (str == NULL)
+		return (-1);
 	data = NULL;
 	copy = ft_strdup(str);
 	va_start(ap, str);

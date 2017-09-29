@@ -6,18 +6,18 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 14:25:04 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/19 13:49:13 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/29 15:22:48 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lol.h"
+#include "../includes/ft_printf.h"
 
 char	*ft_itoa_base(unsigned long long nbr, unsigned int base)
 {
-	int tab[16] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-	char *str;
-	int len;
-	unsigned long long nb;
+	static char			tab[16] = "0123456789ABCDEF";
+	char				*str;
+	int					len;
+	unsigned long long	nb;
 
 	nb = nbr;
 	len = 1;

@@ -6,43 +6,11 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:38:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/28 15:43:50 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/29 15:21:56 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lol.h"
-
-
-int 	flag_larg(t_struct *data, char *flags)
-{
-	char *truc;
-	int i;
-
-	i = 0;
-	data->larg = ft_atoi(flags);
-	truc = ft_itoa(data->larg);
-	i += (int)ft_strlen(truc);
-	free(truc);
-	return (i);
-}
-
-int		flag_prec(t_struct *data, char *flags)
-{
-	int i;
-	char *truc;
-
-	i = 1;
-	if (flags[0] > '9' || flags[0] <= '0')
-	{
-		data->precfail = 1;
-		return (i);
-	}
-	data->prec = ft_atoi(flags);
-	truc = ft_itoa(data->prec);
-	i += (int)ft_strlen(truc);
-	free(truc);
-	return (i);
-}
+#include "../includes/ft_printf.h"
 
 void	flag_diese(t_struct *data)
 {

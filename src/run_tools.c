@@ -6,11 +6,11 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/05 15:19:25 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/26 15:21:12 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/29 15:24:32 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lol.h"
+#include "../includes/ft_printf.h"
 
 char	*ft_strnfjoin(char const *s1, char const *s2)
 {
@@ -40,7 +40,6 @@ char	*ft_strnfjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-
 char	*ft_strnjoin(char const *s1, char const *s2, int n)
 {
 	char		*str;
@@ -48,18 +47,15 @@ char	*ft_strnjoin(char const *s1, char const *s2, int n)
 	size_t		j;
 	size_t		size;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	if (s1 == NULL || s2 == NULL)
 		return (NULL);
 	size = ft_strlen(s1) + ft_strlen(s2);
 	if ((str = malloc(sizeof(char) * (size + 1))) == 0)
 		return (NULL);
-	while (s1[i])
-	{
+	while (s1[++i])
 		str[i] = s1[i];
-		i++;
-	}
 	while (s2[j] && (int)j < n)
 	{
 		str[i + j] = s2[j];
@@ -123,11 +119,8 @@ int		strcheck(char *str, char *check)
 			j++;
 		}
 		if (ok == 0)
-		{
-			//	printf("le pas beau = >%c<\n", str[i]);
 			return (i);
-		}
-	i++;
+		i++;
 	}
 	return (-1);
 }

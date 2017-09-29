@@ -6,13 +6,13 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/28 16:55:28 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/28 17:02:03 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/09/29 15:24:02 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/lol.h"
+#include "../includes/ft_printf.h"
 
-int	check_signe(t_struct *data)
+int		check_signe(t_struct *data)
 {
 	if (data->flags[ft_strlen(data->flags) - 1] == 'o' ||
 		data->flags[ft_strlen(data->flags) - 1] == 'u' ||
