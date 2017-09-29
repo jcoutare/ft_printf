@@ -3,7 +3,7 @@
 
 int       main(void)
 {
-	printf("%d\n", ft_printf("%4.15s\n", "42 is the answer"));
-	printf("%d\n", printf("%4.15s\n", "42 is the answer"));
+	printf("%d\n", ft_printf("{%3c}\n", 0));
+	printf("%d\n", printf("{%3c}\n", 0));
 	return (0);
 }
