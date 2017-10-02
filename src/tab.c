@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:44:30 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/29 15:25:40 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/02 14:18:11 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_struct		*fill_struct(t_struct *data, va_list *ap)
 	data->conv = 0;
 	data->larg = 0;
 	data->precfail = 0;
+	data->c_kc = 0;
 	fill_struct2(data);
 	return (data);
 }

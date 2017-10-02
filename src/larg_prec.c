@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 17:21:50 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/29 15:49:49 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/02 15:35:16 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,34 @@ void	prec(t_struct *data)
 	data->prec = -1;
 	data->f_zero = 0;
 }
+
+void	prec_hexa(t_struct *data, int base)
+{
+	char *tmp;
+	char *str;
+
+	tmp = ft_itoa_base(data->arg, base);
+	str = NULL;
+	data->prec = data->prec - (int)ft_strlen(tmp);
+	free(tmp);
+	if ((long long)data->arg < 0)
+		data->prec++;
+	if (data->prec > 0)
+	{
+		if ((long long)data->arg < 0)
+			str = do_neg_prec(data, str);
+		else
+		{
+			str = ft_strnew(data->prec);
+			ft_memset(str, '0', data->prec);
+		}
+		data->resolved = ft_strjoin(data->resolved, str);
+		free(str);
+	}
+	data->prec = -1;
+	data->f_zero = 0;
+}
+
 
 void	prec_s(t_struct *data)
 {

@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/29 15:54:10 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/02 14:19:29 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int		ft_printf(char *str, ...)
 	decoupe(copy, data);
 	ft_putstr(data->fstring);
 	va_end(ap);
-	ret = (int)ft_strlen(data->fstring) - data->tamer;
+	ret = (int)ft_strlen(data->fstring) - data->tamer + data->c_kc;
 	free(copy);
 	free(data->fstring);
 	free(data->resolved);

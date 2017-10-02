@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:10:58 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/29 18:14:44 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/02 14:32:27 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,19 @@ void	flag_c(t_struct *data)
 		data->arg = (unsigned char)va_arg(*data->ap, int);
 	if (data->arg == 0)
 	{
-		data->resolved[0] = '^';
-		data->resolved[1] = '@';
-		data->resolved[2] = '\0';
-		data->tamer = 1;
+		data->larg--;
+		le_cafe(data);
+		ft_putstr(data->fstring);
+		ft_putstr(data->resolved);
+		data->c_kc = (ft_strlen(data->resolved) - 1) + 2 + ft_strlen(data->fstring);
+		ft_memset(data->resolved, '\0', ft_strlen(data->resolved));
+		ft_memset(data->fstring, '\0', ft_strlen(data->fstring));
+		ft_putchar(0);
 	}
 	else
 	{
 		data->resolved[0] = data->arg;
 		data->resolved[1] = 0;
+		le_cafe(data);
 	}
-	le_cafe(data);
 }

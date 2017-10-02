@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:40:34 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/29 15:20:43 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/02 15:36:36 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	flag_hex_unsigned(t_struct *data)
 		(data->f_zero == 0 || data->f_moins == 1))
 		data->resolved = ft_strjoin(data->resolved, "0X");
 	if (data->prec > 0)
-		prec(data);
+		prec_hexa(data, 16);
 	arg = ft_itoa_base(data->arg, 16);
 	if (data->precfail != 1 || data->arg != 0)
 		data->resolved = ft_strjoin(data->resolved, arg);
@@ -49,7 +49,7 @@ void	flag_hex_unsigned_maj(t_struct *data)
 		(data->f_zero == 0 || data->f_moins == 1))
 		data->resolved = ft_strjoin(data->resolved, "0X");
 	if (data->prec > 0)
-		prec(data);
+		prec_hexa(data, 16);
 	arg = ft_itoa_base(data->arg, 16);
 	if (data->precfail != 1 || data->arg != 0)
 		data->resolved = ft_strjoin(data->resolved, arg);
@@ -68,9 +68,10 @@ void	flag_p(t_struct *data)
 		data->arg = (unsigned long)va_arg(*data->ap, void *);
 	data->resolved = ft_strjoin(data->resolved, "0x");
 	if (data->prec > 0)
-		prec(data);
+		prec_hexa(data, 16);
 	arg = ft_itoa_base(data->arg, 16);
-	data->resolved = ft_strjoin(data->resolved, arg);
+	if (data->precfail != 1 || data->arg != 0)
+		data->resolved = ft_strjoin(data->resolved, arg);
 	free(arg);
 	le_cafe(data);
 	while (data->resolved[i])

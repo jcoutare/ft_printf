@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:20:13 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/29 15:20:14 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/02 15:37:55 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 typedef struct			s_struct
 {
+	int					c_kc;
 	int					precfail;
 	int					tamer;
 	int					modif;
@@ -48,6 +49,7 @@ int						check_signe(t_struct *data);
 int						check_char(t_struct *data, char c);
 char					*ft_itoa_ull(unsigned long long n);
 void					prec_s(t_struct *data);
+void					prec_hexa(t_struct *data, int base);
 int						strcheck(char *str, char *check);
 void					make_zero(t_struct *data);
 void					make_moins(t_struct *data);
