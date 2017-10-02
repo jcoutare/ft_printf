@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:10:58 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/02 14:32:27 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/02 16:58:22 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void	flag_c(t_struct *data)
 		le_cafe(data);
 		ft_putstr(data->fstring);
 		ft_putstr(data->resolved);
-		data->c_kc = (ft_strlen(data->resolved) - 1) + 2 + ft_strlen(data->fstring);
+		data->c_kc = (ft_strlen(data->resolved) - 1) + 2
+			+ ft_strlen(data->fstring);
 		ft_memset(data->resolved, '\0', ft_strlen(data->resolved));
 		ft_memset(data->fstring, '\0', ft_strlen(data->fstring));
 		ft_putchar(0);

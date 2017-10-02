@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:09:13 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/02 15:37:01 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/02 16:57:49 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,15 +111,20 @@ void	flag_o_unsigned(t_struct *data)
 	int			i;
 
 	i = 0;
-	data->conv = 1;
 	if (data->modif != 1)
-		data->arg = va_arg(*data->ap, unsigned int);
-	if (data->f_sharp == 1 && data->arg != 0)
+		data->arg = va_arg(*data->ap, long int);
+	if (data->f_sharp == 1)
 		data->resolved = ft_strjoin(data->resolved, "0");
 	if (data->prec > 0)
 		prec_hexa(data, 8);
 	arg = ft_itoa_base(data->arg, 8);
-	data->resolved = ft_strjoin(data->resolved, arg);
+	if (data->precfail != 1 || data->arg != 0)
+	{
+		if (data->arg == 0 && data->f_sharp == 1)
+			data->conv = 1;
+		else
+			data->resolved = ft_strjoin(data->resolved, arg);
+	}
 	free(arg);
 	le_cafe(data);
 	while (data->resolved[i])

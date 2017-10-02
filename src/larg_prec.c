@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/12 17:21:50 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/02 15:35:16 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/02 16:56:47 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	prec_hexa(t_struct *data, int base)
 	data->prec = -1;
 	data->f_zero = 0;
 }
-
 
 void	prec_s(t_struct *data)
 {

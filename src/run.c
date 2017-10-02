@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/02 14:19:29 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/02 16:42:33 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ char	*get_flags(char *str, t_struct *data)
 	int validflags;
 
 	data->flags = ft_strsub(str, 1,
-							strichr_str(str + 1, "%sSpdDioOuUxXcC") + 1);
-	if ((validflags = strcheck(data->flags, "%-+ #hljzsSpdDioOuUxXcC.") != -1))
+							strichr_str(str + 1, "%spdDioOuUxXc") + 1);
+	if ((validflags = strcheck(data->flags, "%-+ #hljzspdDioOuUxXc.") != -1))
 	{
 		if (data->flags)
 			free(data->flags);
@@ -59,7 +59,7 @@ char	*get_flags(char *str, t_struct *data)
 	else
 	{
 		la_resolvance(data);
-		str += strichr_str(str + 1, "%sSpdDioOuUxXcC") + 2;
+		str += strichr_str(str + 1, "%spdDioOuUxXc") + 2;
 	}
 	free(data->flags);
 	return (str);

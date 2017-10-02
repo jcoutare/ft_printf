@@ -6,7 +6,7 @@
 #    By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/16 11:07:45 by jcoutare          #+#    #+#              #
-#    Updated: 2017/09/29 15:50:34 by jcoutare         ###   ########.fr        #
+#    Updated: 2017/10/02 17:10:26 by jcoutare         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -102,10 +102,6 @@ OBJ_PATH = obj
 OBJ_LIB_PATH = obj_lib
 
 CPPFLAGS = -Iinclude
-
-LDFLAGS = -Llibft
-
-LDLIBS = -lft
 
 NAME = libftprintf.a
 
