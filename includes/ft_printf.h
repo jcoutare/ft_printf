@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:20:13 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/02 15:37:55 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/04 16:53:00 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 typedef struct			s_struct
 {
+	int					fail;
 	int					c_kc;
 	int					precfail;
 	int					tamer;

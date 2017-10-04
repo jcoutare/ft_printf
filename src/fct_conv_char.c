@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:10:58 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/02 16:58:22 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/04 17:02:31 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	flag_s(t_struct *data)
 {
-	data->sarg = va_arg(*data->ap, char *);
+	if (data->modif != 1)
+		data->sarg = va_arg(*data->ap, char *);
 	if (data->sarg == 0)
 		data->sarg = "(null)";
 	if (data->prec > 0)
