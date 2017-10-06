@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:38:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/29 15:21:56 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/06 19:42:53 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void	flag_space(t_struct *data)
 
 void	flag_zero(t_struct *data)
 {
-	if (data->f_moins == 0 && data->precfail != 1)
+	if (data->f_moins == 0)
 		data->f_zero = 1;
 }

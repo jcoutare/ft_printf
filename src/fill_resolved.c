@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 14:56:49 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/02 15:19:49 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/06 19:47:57 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	le_the(t_struct *data)
 		}
 		else if (data->f_space == 1)
 		{
-			if ((long long)data->arg > 0)
+			if ((long long)data->arg >= 0)
 				data->resolved[0] = ' ';
 			data->f_space = 0;
 		}

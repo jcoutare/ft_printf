@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 14:48:36 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/02 15:23:22 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/06 19:38:14 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*do_plus_zero(t_struct *data, char *str)
 	if (!(str = ft_strnew(data->larg)))
 		return (NULL);
 	str[0] = '+';
-	str[1] = '\0';
+	str[data->larg] = '\0';
 	ft_memset(str + 1, '0', data->larg);
 	return (str);
 }
@@ -38,6 +38,7 @@ char	*make_zerobis(t_struct *data)
 	char *str;
 
 	str = NULL;
+	printf(">>>>%d\n", data->f_plus);
 	if ((long long)data->arg < 0)
 		str = do_neg_zero(data, str);
 	else if (data->f_plus == 1)
