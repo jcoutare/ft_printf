@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:10:58 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/04 17:02:31 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/06 13:14:40 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	flag_s(t_struct *data)
 	else if (data->sarg != NULL && data->precfail != 1)
 		data->resolved = ft_strjoin(data->resolved, data->sarg);
 	le_cafe(data);
+	data->modif = 0;
 }
 
 void	flag_c(t_struct *data)
@@ -48,4 +49,5 @@ void	flag_c(t_struct *data)
 		data->resolved[1] = 0;
 		le_cafe(data);
 	}
+	data->modif = 0;
 }

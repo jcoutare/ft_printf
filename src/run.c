@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:15:33 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/04 16:51:56 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/06 13:15:53 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	la_resolvance(t_struct *data)
 			data->flag_tab[c](data);
 		i++;
 	}
+	data->modif = 0;
 }
 
 char	*get_flags(char *str, t_struct *data)
