@@ -43,7 +43,6 @@ char	*do_plus_prec(t_struct *data, char *str)
 
 char	*do_neg_prec(t_struct *data, char *str)
 {
-  data->prec++;
   str = ft_strnew(data->prec);
   str[data->prec + 1] = '\0';
   str[0] = '-';
@@ -64,30 +63,32 @@ char    *do_sharp_zero_prec(t_struct *data, char *str)
 }
 void	prec(t_struct *data)
 {
-	char *tmp;
-	char *str;
+  char *tmp;
+  char *str;
 
-	tmp = ft_itoa(data->arg);
-	str = NULL;
-	data->prec = data->prec - (int)ft_strlen(tmp);
-	free(tmp);
-	if (data->prec > 0)
+  tmp = ft_itoa(data->arg);
+  str = NULL;
+  data->prec = data->prec - (int)ft_strlen(tmp);
+  free(tmp);
+  if ((long long)data->arg < 0)
+    data->prec++;
+  if (data->prec > 0)
+    {
+      if ((long long)data->arg < 0)
+	str = do_neg_prec(data, str);
+      else if (data->f_plus == 1)
+	str = do_plus_prec(data, str);
+      else
 	{
-		if ((long long)data->arg < 0)
-			str = do_neg_prec(data, str);
-		else if (data->f_plus == 1)
-		  str = do_plus_prec(data, str);
-		else
-		{
-			str = ft_strnew(data->prec);
-			ft_memset(str, '0', data->prec);
-			str[data->prec + 1] = '\0';
-		}
-		data->resolved = ft_strjoin(data->resolved, str);
-		free(str);
+	  str = ft_strnew(data->prec);
+	  ft_memset(str, '0', data->prec);
+	  str[data->prec + 1] = '\0';
 	}
-	data->prec = -1;
-	data->f_zero = 0;
+      data->resolved = ft_strjoin(data->resolved, str);
+      free(str);
+    }
+  data->prec = -1;
+  data->f_zero = 0;
 }
 
 void	prec_hexa(t_struct *data, int base)

@@ -72,10 +72,14 @@ int		main(void)
   
 	printf("r_ret =%d\n", printf("le vrai>cc%#.4X et %#0012x %#04hX !!\n", 0xaef, 0xe,
 	(unsigned short)0));
-	printf("m_ret =%d\n", ft_printf("le mien>cc%#.4X et %#0012x %#04hX !!\n", 0xaef, 0xe,				  (unsigned short)0)); */
+	printf("m_ret =%d\n", ft_printf("le mien>cc%#.4X et %#0012x %#04hX !!\n", 0xaef, 0xe,				  (unsigned short)0));
   printf("__________\n");
   int i = 42;
   void *lol;
   printf("r_ret =%d\n", printf("le vrai : >%p< >%p< >%20p< >%-25p<", 0, i, i, i));
   printf("m_ret =%d\n", ft_printf("le mien : >%p< >%p< >%20p< >%-25p<", 0, i, i, i));
-}
+*/
+  printf("r_ret =%d\n", printf("le vrai : %03.2d\n", -1));
+  printf("m_ret =%d\n", ft_printf("le mien : %03.2d\n", -1));
+
+    }
