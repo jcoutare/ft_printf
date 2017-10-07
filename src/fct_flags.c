@@ -19,7 +19,7 @@ void	flag_diese(t_struct *data)
 
 void	flag_moins(t_struct *data)
 {
-	data->f_moins = 1;
+  data->f_moins = 1;
 	data->f_zero = 0;
 }
 
@@ -36,5 +36,5 @@ void	flag_space(t_struct *data)
 void	flag_zero(t_struct *data)
 {
   if (data->f_moins == 0)
-		data->f_zero = 1;
+    data->f_zero = 1;
 }

@@ -22,9 +22,8 @@
 typedef struct			s_struct
 {
 	int					fail;
-	int					c_kc;
+	size_t					c_kc;
 	int					precfail;
-	int					tamer;
 	int					modif;
 	int					f_sharp;
 	int					f_zero;

@@ -16,7 +16,6 @@ t_struct		*fill_struct(t_struct *data, va_list *ap)
 {
 	if (!(data = malloc(sizeof(t_struct))))
 		return (NULL);
-	data->tamer = 0;
 	data->arg = 0;
 	data->sarg = 0;
 	data->ap = ap;

@@ -19,7 +19,7 @@ void	larg(t_struct *data)
 
 	tmp = data->resolved;
 	str = NULL;
-	data->larg = data->larg - (int)ft_strlen(data->resolved) + data->tamer;
+	data->larg = data->larg - (int)ft_strlen(data->resolved);
 	if (data->larg > 0)
 	{
 		str = ft_strnew(data->larg);

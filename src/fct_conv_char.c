@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -28,26 +29,38 @@ void	flag_s(t_struct *data)
 
 void	flag_c(t_struct *data)
 {
-	data->resolved[0] = '\0';
-	if (data->modif != 1)
-		data->arg = (unsigned char)va_arg(*data->ap, int);
-	if (data->arg == 0)
+  data->resolved[0] = '\0';
+  if (data->modif != 1)
+    data->arg = (unsigned char)va_arg(*data->ap, int);
+  if (data->arg == 0)
+    {
+      data->larg--;
+      if (data->f_moins && data->larg)
 	{
-		data->larg--;
-		le_cafe(data);
-		ft_putstr(data->fstring);
-		ft_putstr(data->resolved);
-		data->c_kc = (ft_strlen(data->resolved) - 1) + 2
-			+ ft_strlen(data->fstring);
-		ft_memset(data->resolved, '\0', ft_strlen(data->resolved));
-		ft_memset(data->fstring, '\0', ft_strlen(data->fstring));
-		ft_putchar(0);
-	}
-	else
+	  ft_putstr(data->fstring);
+	  ft_putchar(0);
+	  le_cafe(data);
+	  ft_putstr(data->resolved);
+	  data->c_kc +=ft_strlen(data->resolved) + ft_strlen(data->fstring) + 1;
+	  ft_memset(data->resolved, '\0', ft_strlen(data->resolved));
+	  ft_memset(data->fstring, '\0', ft_strlen(data->fstring));
+     	}
+      else
 	{
-		data->resolved[0] = data->arg;
-		data->resolved[1] = 0;
-		le_cafe(data);
+	  le_cafe(data);
+	  ft_putstr(data->fstring);
+	  ft_putstr(data->resolved);
+	  data->c_kc += ft_strlen(data->resolved) + ft_strlen(data->fstring) + 1;
+	  ft_memset(data->resolved, '\0', ft_strlen(data->resolved));
+	  ft_memset(data->fstring, '\0', ft_strlen(data->fstring));
+	  ft_putchar(0);
 	}
-	data->modif = 0;
+    }
+  else
+    {
+      data->resolved[0] = data->arg;
+      data->resolved[1] = 0;
+      le_cafe(data);
+    }
+  data->modif = 0;
 }
