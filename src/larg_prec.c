@@ -32,26 +32,36 @@ void	larg(t_struct *data)
 
 char	*do_plus_prec(t_struct *data, char *str)
 {
-	str = ft_strnew(data->prec);
-	str[data->prec + 1] = '\0';
-	str[0] = '+';
-	data->arg = (long long)data->arg * -1;
-	ft_memset(str + 1, '0', data->prec);
-	data->f_plus = 0;
-	return (str);
+  str = ft_strnew(data->prec);
+  str[data->prec + 1] = '\0';
+  str[0] = '+';
+  data->arg = (long long)data->arg * -1;
+  ft_memset(str + 1, '0', data->prec);
+  data->f_plus = 0;
+  return (str);
 }
 
 char	*do_neg_prec(t_struct *data, char *str)
 {
-	data->prec++;
-	str = ft_strnew(data->prec);
-	str[data->prec + 1] = '\0';
-	str[0] = '-';
-	data->arg = (long long)data->arg * -1;
-	ft_memset(str + 1, '0', data->prec);
-	return (str);
+  data->prec++;
+  str = ft_strnew(data->prec);
+  str[data->prec + 1] = '\0';
+  str[0] = '-';
+  data->arg = (long long)data->arg * -1;
+  ft_memset(str + 1, '0', data->prec);
+  return (str);
 }
-
+char    *do_sharp_zero_prec(t_struct *data, char *str)
+{
+  if (!(str = ft_strnew(data->prec)))
+    return (NULL);
+  str[0] = '0';
+  str[1] = 'x';
+  str[data->prec + 1] = '\0';
+  ft_memset(str + 2, '0', data->prec);
+  data->f_sharp = 0;
+  return (str);
+}
 void	prec(t_struct *data)
 {
 	char *tmp;
@@ -59,14 +69,14 @@ void	prec(t_struct *data)
 
 	tmp = ft_itoa(data->arg);
 	str = NULL;
-	free(tmp);
 	data->prec = data->prec - (int)ft_strlen(tmp);
+	free(tmp);
 	if (data->prec > 0)
 	{
 		if ((long long)data->arg < 0)
 			str = do_neg_prec(data, str);
 		else if (data->f_plus == 1)
-			str = do_plus_prec(data, str);
+		  str = do_plus_prec(data, str);
 		else
 		{
 			str = ft_strnew(data->prec);
@@ -82,29 +92,29 @@ void	prec(t_struct *data)
 
 void	prec_hexa(t_struct *data, int base)
 {
-	char *tmp;
-	char *str;
+  char *tmp;
+  char *str;
 
-	tmp = ft_itoa_base(data->arg, base);
-	str = NULL;
-	data->prec = data->prec - (int)ft_strlen(tmp);
-	free(tmp);
-	if ((long long)data->arg < 0)
-		data->prec++;
-	if (data->prec > 0)
+  tmp = ft_itoa_base(data->arg, base);
+  str = NULL;
+  data->prec = data->prec - (int)ft_strlen(tmp);
+  free(tmp);
+  if (data->prec > 0)
+    {
+      if ((long long)data->arg < 0)
+	str = do_neg_prec(data, str);
+      else if (data->f_sharp == 1 && data->f_zero == 1)
+	str = do_sharp_zero_prec(data, str);
+      else
 	{
-		if ((long long)data->arg < 0)
-			str = do_neg_prec(data, str);
-		else
-		{
-			str = ft_strnew(data->prec);
-			ft_memset(str, '0', data->prec);
-		}
-		data->resolved = ft_strjoin(data->resolved, str);
-		free(str);
+	  str = ft_strnew(data->prec);
+	  ft_memset(str, '0', data->prec);
 	}
-	data->prec = -1;
-	data->f_zero = 0;
+      data->resolved = ft_strjoin(data->resolved, str);
+      free(str);
+    }
+  data->prec = -1;
+  data->f_zero = 0;
 }
 
 void	prec_s(t_struct *data)

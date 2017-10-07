@@ -12,32 +12,44 @@
 
 #include "../includes/ft_printf.h"
 
+void	reset_data(t_struct *data)
+{
+  data->f_plus = 0;
+  data->f_space = 0;
+  data->f_zero = 0;
+  data->f_moins = 0;
+  data->f_sharp = 0;
+  data->precfail = 0;
+  data->modif = 0;
+}
+
 void	la_resolvance(t_struct *data)
 {
-	int i;
-	int c;
+  int i;
+  int c;
 
-	i = 0;
-	while (data->flags[i])
+  i = 0;
+  while (data->flags[i])
+    {
+      if (data->flags[i] <= '9' && data->flags[i] >= '1')
 	{
-		if (data->flags[i] <= '9' && data->flags[i] >= '1')
-		{
-			i += flag_larg(data, data->flags + i);
-		}
-		if (data->flags[i] == '.')
-		{
-			i += flag_prec(data, (data->flags + i + 1));
-		}
-		if (data->flags[i] == 'h' && data->flags[i + 1] == 'h')
-			i++;
-		if (data->flags[i] == 'l' && data->flags[i + 1] == 'l')
-			i++;
-		c = data->flags[i];
-		if (data->flag_tab[c] != 0)
-			data->flag_tab[c](data);
-		i++;
+	  i += flag_larg(data, data->flags + i);
 	}
-	data->modif = 0;
+      if (data->flags[i] == '.')
+	{
+	  i += flag_prec(data, (data->flags + i + 1));
+	}
+      if (data->flags[i] == 'h' && data->flags[i + 1] == 'h')
+	i++;
+      if (data->flags[i] == 'l' && data->flags[i + 1] == 'l')
+	i++;
+      c = data->flags[i];
+      if (data->flag_tab[c] != 0)
+	data->flag_tab[c](data);
+      i++;
+    }
+  reset_data(data);
+  data->modif = 0;
 }
 
 char	*get_flags(char *str, t_struct *data)

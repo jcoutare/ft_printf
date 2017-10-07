@@ -27,18 +27,20 @@ int		flag_larg(t_struct *data, char *flags)
 
 int		flag_prec(t_struct *data, char *flags)
 {
-	int			i;
-	char		*truc;
+  int			i;
+  char		*truc;
 
-	i = 1;
-	if (flags[0] > '9' || flags[0] <= '0')
-	{
-		data->precfail = 1;
-		return (i);
-	}
-	data->prec = ft_atoi(flags);
-	truc = ft_itoa(data->prec);
-	i += (int)ft_strlen(truc);
-	free(truc);
-	return (i);
+  i = 1;
+  if (flags[0] > '9' || flags[0] <= '0')
+    {
+      if (flags[0] == '0')
+	i++;
+      data->precfail = 1;
+      return (i);
+    }
+  data->prec = ft_atoi(flags);
+  truc = ft_itoa(data->prec);
+  i += (int)ft_strlen(truc);
+  free(truc);
+  return (i);
 }
