@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 15:44:30 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/04 16:52:14 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/09 14:07:01 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_struct		*fill_struct(t_struct *data, va_list *ap)
 	data->precfail = 0;
 	data->fail = 0;
 	data->c_kc = 0;
+	data->flag_tab['C'] = &flag_bigc;
 	fill_struct2(data);
 	return (data);
 }
@@ -44,6 +45,7 @@ void			fill_struct2(t_struct *data)
 {
 	data->prec = -1;
 	data->modif = 0;
+	data->flag_tab['S'] = &flag_bigs;
 	data->flag_tab['%'] = &flag_pourcent;
 	data->flag_tab['0'] = &flag_zero;
 	data->flag_tab['d'] = &flag_d_signed;

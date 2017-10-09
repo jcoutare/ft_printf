@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/15 10:20:56 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/09/29 15:23:32 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/09 13:22:52 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,14 @@ void	make_moins(t_struct *data)
 		free(str);
 	}
 	data->larg = 0;
+}
+
+void	make_o_sharp(t_struct *data)
+{
+	if (data->f_sharp == 1)
+	{
+		data->resolved = ft_strjoin(data->resolved, "0");
+		if (data->arg != 0)
+			data->prec--;
+	}
 }

@@ -6,13 +6,15 @@
 #    By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/08/16 11:07:45 by jcoutare          #+#    #+#              #
-#    Updated: 2017/10/02 17:10:26 by jcoutare         ###   ########.fr        #
+#    Updated: 2017/10/09 14:04:43 by jcoutare         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 SRC_PATH = src
 
-SRC_NAME = 	fct_conv_char.c \
+SRC_NAME = 	fct_unicode.c \
+			larg_prec_tools.c \
+			fct_conv_char.c \
 			fct_conv_number.c \
 			fill_resolved.c \
 			make_zero.c \

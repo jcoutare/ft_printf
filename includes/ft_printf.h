@@ -6,7 +6,7 @@
 /*   By: jcoutare <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 15:20:13 by jcoutare          #+#    #+#             */
-/*   Updated: 2017/10/04 16:53:00 by jcoutare         ###   ########.fr       */
+/*   Updated: 2017/10/09 14:05:51 by jcoutare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <sys/types.h>
-
+# include <wchar.h>
 typedef struct			s_struct
 {
 	int					fail;
@@ -43,6 +43,13 @@ typedef struct			s_struct
 }						t_struct;
 
 int						ft_printf(char *str, ...);
+void					flag_bigc(t_struct *data);
+void					flag_bigs(t_struct *data);
+void					make_o_sharp(t_struct *data);
+char					*do_normal_prec(t_struct *data, char *str);
+char					*do_plus_prec(t_struct *data, char *str);
+char					*do_neg_prec(t_struct *data, char *str);
+char					*do_sharp_zero_prec(t_struct *data, char *str);
 void					le_the(t_struct *data);
 void					le_cafe(t_struct *data);
 int						check_signe(t_struct *data);
